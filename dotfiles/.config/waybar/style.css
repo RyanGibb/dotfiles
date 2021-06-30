@@ -1,0 +1,173 @@
+@define-color light #eceff4;
+@define-color dark #282828;
+@define-color warning #fabd2f;
+@define-color critical #cc241d;
+@define-color mode #2e3440;
+@define-color workspaces #5e81ac;
+@define-color workspacesfocused #88c0d0;
+@define-color media_player #458588;
+@define-color sound #d3869b;
+@define-color network #b16286;
+@define-color memory #8ec07c;
+@define-color cpu #98971a;
+@define-color temp #b8bb26;
+@define-color layout #689d6a;
+@define-color battery #fabd2f;
+@define-color date #282828;
+@define-color urgent #d08770;
+
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+	background: transparent;
+	color: @light;
+	font-family: monospace;
+	font-size: 10pt;
+}
+
+#battery,
+#clock,
+#cpu,
+#custom-updates,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#custom-alsa,
+#sndio,
+#tray {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#mode {
+	color: @light;
+	background: @mode;
+}
+
+#workspaces button {
+	padding-left: 4px;
+	padding-right: 4px;
+	color: @dark;
+	background: @workspaces;
+}
+
+#workspaces button.focused {
+	background: @workspacesfocused;
+}
+
+#workspaces button.urgent {
+	background: @urgent;
+}
+
+#custom-media_player {
+	background: @media_player;
+	color: @light;
+}
+
+#pulseaudio {
+	background: @sound;
+	color: @dark;
+}
+
+#network {
+	background: @network;
+	color: @light;
+}
+
+#memory {
+	background: @memory;
+	color: @dark;
+}
+
+#cpu {
+	background: @cpu;
+	color: @light;
+}
+
+#temperature {
+	background: @temp;
+	color: @dark;
+}
+
+#custom-updates {
+	background: @layout;
+	color: @light;
+}
+
+#battery {
+	background: @battery;
+	color: @dark;
+}
+
+#tray {
+	background: @date;
+}
+
+#clock {
+	background: @date;
+	color: @light;
+}
+
+#custom-arrow0 {
+	color: @media_player;
+	background: transparent;
+}
+
+#custom-arrow1 {
+	color: @sound;
+	background: @media_player;
+}
+
+#custom-arrow2 {
+	color: @network;
+	background: @sound;
+}
+
+#custom-arrow3 {
+	color: @memory;
+	background: @network;
+}
+
+#custom-arrow4 {
+	color: @cpu;
+	background: @memory;
+}
+
+#custom-arrow5 {
+	color: @temp;
+	background: @cpu;
+}
+
+#custom-arrow6 {
+	color: @layout;
+	background: @temp;
+}
+
+#custom-arrow7 {
+	color: @battery;
+	background: @layout;
+}
+
+#custom-arrow8 {
+	color: @date;
+	background: @battery;
+}
+
+#custom-arrow10 {
+	color: @workspaces;
+	background: @mode;
+}
+
+#custom-arrow11 {
+	color: @mode;
+	background: transparent;
+}

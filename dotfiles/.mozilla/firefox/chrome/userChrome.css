@@ -1,0 +1,8 @@
+#webrtcIndicator {
+	display: none;
+}
+
+/* Move find bar to top */
+.browserContainer > findbar {
+  -moz-box-ordinal-group: 0;
+}

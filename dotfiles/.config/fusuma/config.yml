@@ -1,0 +1,27 @@
+swipe:
+  3:
+    threshhold: 0.01
+    interval: 1
+    left:
+      sendkey: "LEFTALT+RIGHT"
+    right:
+      sendkey: "LEFTALT+LEFT"
+    up:
+      sendkey: "LEFTCTRL+TAB"
+    down:
+      sendkey: "LEFTCTRL+LEFTSHIFT+TAB"
+  4:
+    threshhold: 0.01
+    interval: 1
+    left:
+      sendkey: "LEFTMETA+DOT"
+    right:
+      sendkey: "LEFTMETA+COMMA"
+    up:
+      command: "light -A 10"
+      threshold: 0.2
+      interval: 0.5
+    down:
+      command: "light -U 10"
+      threshold: 0.2
+      interval: 0.5

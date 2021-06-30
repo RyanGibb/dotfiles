@@ -1,0 +1,18 @@
+exec wl-paste -t text --watch clipman store
+
+exec swayidle -w\
+	lock 'swaylock -f -i "$WALLPAPER"'\
+	timeout 300 'loginctl lock-session'\
+	timeout 600 'swaymsg "output * dpms off"'\
+	resume 'swaymsg "output * dpms on"'\
+	before-sleep 'playerctl pause'\
+	before-sleep 'loginctl lock-session'
+
+exec playerctld daemon
+exec mako
+exec thunar --daemon
+exec blueman-applet
+exec nm-applet --indicator
+exec gammastep-indicator
+exec fusuma
+

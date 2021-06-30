@@ -1,0 +1,35 @@
+output * bg "$WALLPAPER" fill
+
+hide_edge_borders smart
+smart_borders on
+smart_gaps on
+
+gaps inner $inner_gap
+gaps outer $outer_gap
+gaps top   $top_gap
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #5e81ac #5e81ac #eceff4 #85b6f2   #5e81ac
+client.focused_inactive #4c566a #4c566a #eceff4 #72819e   #4c566a
+client.unfocused        #2e3440 #2e3440 #eceff4 #535d73   #2e3440
+client.urgent           #d08770 #d08770 #eceff4 #ffdc96   #d08770
+client.placeholder      #000000 #0c0c0c #eceff4 #000000   #0c0c0c
+
+client.background #ffffff
+
+focus_follows_mouse no
+
+default_border pixel 4
+
+for_window [app_id="Alacritty"] border none
+for_window [app_id="zenity"] floating enable
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+	gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+	gsettings set $gnome-schema icon-theme 'breeze-dark'
+	gsettings set $gnome-schema font-name 'Noto Sans 11'
+	seat seat0 xcursor_theme 'Adwaita' 48
+}
+

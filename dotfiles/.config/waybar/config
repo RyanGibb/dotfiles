@@ -1,0 +1,169 @@
+
+[{
+	"layer": "top",
+	"position": "top",
+	"output": "!DVI-D-1",
+
+	"modules-left": [
+		"sway/workspaces",
+		"custom/arrow10",
+		"sway/mode",
+		"custom/arrow11",
+	],
+
+	"modules-right": [
+		"custom/arrow0",
+		"custom/media_player",
+		"custom/arrow1",
+		"pulseaudio",
+		"custom/arrow2",
+		"network",
+		"custom/arrow3",
+		"memory",
+		"custom/arrow4",
+		"cpu",
+		"custom/arrow5",
+		"temperature",
+		"custom/arrow6",
+		"custom/updates",
+		"custom/arrow7",
+		"battery",
+		"custom/arrow8",
+		"tray",
+		"clock"
+	],
+
+	"sway/mode": {
+		"tooltip": false
+	},
+
+	"sway/window": {
+		"max-length": 50,
+		"tooltip": false
+	},
+
+	"custom/media_player": {
+		"exec": "~/.config/waybar/scripts/media_player.sh",
+	},
+
+	"custom/updates": {
+		"format": "{}",
+		"exec": "echo  $(checkupdates | wc -l)  $(yay -Qua | wc -l)",
+		"on-click": "$TERM -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
+		"interval": 3600, // hourly
+	},
+
+	"pulseaudio": {
+		"scroll-step": 1,
+		"format": "{desc:.16} {icon} {volume:3}%",
+		"format-bluetooth": "{desc} {icon} {volume:3}%",
+		"format-muted": "{desc:.16}   {volume:3}%",
+		"format-icons": {
+			"headphones": "",
+			"handsfree": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"on-click": "pavucontrol",
+	},
+
+	"network": {
+		"interval": 60,
+		"format-wifi": " {signalStrength}% {essid:.16}  {bandwidthUpBits:>}  {bandwidthDownBits:>}",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": "",
+		"tooltip-format": "{ifname}: {ipaddr}",
+	},
+
+	"battery": {
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": " {capacity}%", // Icon: bolt
+		"format-discharging": "{icon} {capacity}%",
+		"format-icons": ["", "", "", "", ""],
+		"tooltip": false
+	},
+
+	"clock": {
+		"interval": 60,
+		"format": "{:%a %d/%m/%y %I:%M:%S %p}"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": " {usage}%",
+		"states": {
+		  "warning": 70,
+		  "critical": 90
+		}
+	},
+
+	"sway/language": {
+		"format": " {}",
+		"min-length": 5,
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": " {}%",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": " {temperatureC}°",
+		"tooltip": false
+	},
+
+	"tray": {
+		"icon-size": 14,
+		//"spacing": 0
+	},
+
+	"custom/arrow0":  { "format": "", "tooltip": false },
+	"custom/arrow1":  { "format": "", "tooltip": false },
+	"custom/arrow2":  { "format": "", "tooltip": false },
+	"custom/arrow3":  { "format": "", "tooltip": false },
+	"custom/arrow4":  { "format": "", "tooltip": false },
+	"custom/arrow5":  { "format": "", "tooltip": false },
+	"custom/arrow6":  { "format": "", "tooltip": false },
+	"custom/arrow7":  { "format": "", "tooltip": false },
+	"custom/arrow8":  { "format": "", "tooltip": false },
+	"custom/arrow9":  { "format": "", "tooltip": false },
+	"custom/arrow10": { "format": "", "tooltip": false },
+	"custom/arrow11": { "format": "", "tooltip": false },
+},
+{
+	"layer": "top",
+	"output": "DVI-D-1",
+    "modules-left": [
+		"sway/workspaces",
+		"custom/arrow10"
+	],
+
+	"modules-right": [
+		"custom/arrow8",
+		"clock"
+	],
+
+	"clock": {
+		"interval": 60,
+		"format": "{:%a %d/%m/%y %I:%M:%S %p}"
+	},
+	
+	"custom/arrow8":  { "format": "", "tooltip": false },
+	"custom/arrow9":  { "format": "", "tooltip": false },
+	"custom/arrow10": { "format": "", "tooltip": false },
+}]
