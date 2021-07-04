@@ -1,4 +1,3 @@
-
 [{
 	"layer": "top",
 	"position": "top",
@@ -6,9 +5,9 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"custom/arrow10",
-		"sway/mode",
 		"custom/arrow11",
+		"sway/mode",
+		"custom/arrow12",
 	],
 
 	"modules-right": [
@@ -17,28 +16,32 @@
 		"custom/arrow1",
 		"pulseaudio",
 		"custom/arrow2",
-		"network",
+		"backlight",
 		"custom/arrow3",
-		"memory",
+		"network",
 		"custom/arrow4",
-		"cpu",
+		"disk",
 		"custom/arrow5",
-		"temperature",
+		"memory",
 		"custom/arrow6",
-		"custom/updates",
+		"cpu",
 		"custom/arrow7",
-		"battery",
+		"temperature",
 		"custom/arrow8",
+		"custom/updates",
+		"custom/arrow9",
+		"battery",
+		"custom/arrow10",
 		"tray",
 		"clock"
 	],
 
-	"sway/mode": {
+	"sway/window": {
+		"max-length": 50,
 		"tooltip": false
 	},
 
-	"sway/window": {
-		"max-length": 50,
+	"sway/mode": {
 		"tooltip": false
 	},
 
@@ -46,17 +49,16 @@
 		"exec": "~/.config/waybar/scripts/media_player.sh",
 	},
 
-	"custom/updates": {
-		"format": "{}",
-		"exec": "echo  $(checkupdates | wc -l)  $(yay -Qua | wc -l)",
-		"on-click": "$TERM -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
-		"interval": 3600, // hourly
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{icon}{percent}%",
+		"format-icons": " "
 	},
 
 	"pulseaudio": {
 		"scroll-step": 1,
 		"format": "{desc:.16} {icon} {volume:3}%",
-		"format-bluetooth": "{desc} {icon} {volume:3}%",
+		"format-bluetooth": "{desc}{icon} {volume:3}%",
 		"format-muted": "{desc:.16}   {volume:3}%",
 		"format-icons": {
 			"headphones": "",
@@ -71,32 +73,30 @@
 	},
 
 	"network": {
-		"interval": 60,
-		"format-wifi": " {signalStrength}% {essid:.16}  {bandwidthUpBits:>}  {bandwidthDownBits:>}",
-		"format-ethernet": " {ifname}",
-		"format-disconnected": "",
+		"interval": 10,
+		"format-wifi": " {signalStrength}% {essid:.17}  {bandwidthDownBits:>}  {bandwidthUpBits:>}",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": " 🗙",
 		"tooltip-format": "{ifname}: {ipaddr}",
 	},
 
-	"battery": {
-		"interval": 60,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format": " {capacity}%", // Icon: bolt
-		"format-discharging": "{icon} {capacity}%",
-		"format-icons": ["", "", "", "", ""],
-		"tooltip": false
+	"disk": {
+		"interval": 3600, // hourly
+		"format": " {free}",
+		"path": "/"
 	},
 
-	"clock": {
-		"interval": 60,
-		"format": "{:%a %d/%m/%y %I:%M:%S %p}"
+	"memory": {
+		"interval": 10,
+		"format": " {}%",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
 	},
 
 	"cpu": {
-		"interval": 5,
+		"interval": 10,
 		"tooltip": false,
 		"format": " {usage}%",
 		"states": {
@@ -105,31 +105,41 @@
 		}
 	},
 
-	"sway/language": {
-		"format": " {}",
-		"min-length": 5,
-		"tooltip": false
-	},
-
-	"memory": {
-		"interval": 5,
-		"format": " {}%",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		}
-	},
-
 	"temperature": {
+		"thermal-zone": 5,
+		"interval": 10,
 		"critical-threshold": 90,
-		"interval": 5,
 		"format": " {temperatureC}°",
 		"tooltip": false
 	},
 
+	"custom/updates": {
+		"format": "{}",
+		"exec": "~/.config/waybar/scripts/updates.sh",
+		"interval": 3600, // hourly
+		"tooltip": false
+	},
+
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 15,
+			"critical": 5
+		},
+		"format": " {capacity}%{time}", // Icon: bolt
+		"format-discharging": "{icon} {capacity}%{time}",
+		"format-icons": ["", "", "", "", ""],
+		"format-time": "{H:>2}:{M:<02}",
+		"tooltip": false
+	},
+
 	"tray": {
-		"icon-size": 14,
-		//"spacing": 0
+		"icon-size": 16
+	},
+
+	"clock": {
+		"interval": 1,
+		"format": "{:%a %d/%m/%y %I:%M:%S%p}"
 	},
 
 	"custom/arrow0":  { "format": "", "tooltip": false },
@@ -142,28 +152,28 @@
 	"custom/arrow7":  { "format": "", "tooltip": false },
 	"custom/arrow8":  { "format": "", "tooltip": false },
 	"custom/arrow9":  { "format": "", "tooltip": false },
-	"custom/arrow10": { "format": "", "tooltip": false },
+	"custom/arrow10": { "format": "", "tooltip": false },
 	"custom/arrow11": { "format": "", "tooltip": false },
+	"custom/arrow12": { "format": "", "tooltip": false },
 },
 {
 	"layer": "top",
 	"output": "DVI-D-1",
     "modules-left": [
 		"sway/workspaces",
-		"custom/arrow10"
+		"custom/arrow1v"
 	],
 
 	"modules-right": [
-		"custom/arrow8",
+		"custom/arrow2v",
 		"clock"
 	],
 
 	"clock": {
 		"interval": 60,
-		"format": "{:%a %d/%m/%y %I:%M:%S %p}"
+		"format": "{:%a %d/%m/%y %I:%M:%S%p}"
 	},
 	
-	"custom/arrow8":  { "format": "", "tooltip": false },
-	"custom/arrow9":  { "format": "", "tooltip": false },
-	"custom/arrow10": { "format": "", "tooltip": false },
+	"custom/arrow1v": { "format": "", "tooltip": false },
+	"custom/arrow2v": { "format": "", "tooltip": false },
 }]

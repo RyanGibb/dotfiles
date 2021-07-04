@@ -10,6 +10,5 @@ alias nv='nvim'
 alias o='xdg-open'
 alias se='sudoedit'
 alias su='su -p'
-
 PS1='\[\e[36m\]\u@\h:\W\[\e[0m\] $ '
 

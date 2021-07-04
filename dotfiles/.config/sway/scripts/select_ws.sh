@@ -9,5 +9,5 @@ WORKSPACES=$(swaymsg -t get_workspaces \
 WORKSPACES="${WORKSPACES}
 $NEW_WS_NUM"
 
-NAME=$(echo "$WORKSPACES" | wofi -dmenu -p "$1") || exit
+NAME=$(echo "$WORKSPACES" | wofi -d -p "$1") || exit
 echo "$NAME"

@@ -1,5 +1,3 @@
-bindsym $mod+Shift+t exec killall -SIGUSR1 waybar 
-
 bar {
 	swaybar_command	waybar
 }

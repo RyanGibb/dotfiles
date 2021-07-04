@@ -18,10 +18,10 @@ swipe:
     right:
       sendkey: "LEFTMETA+COMMA"
     up:
-      command: "light -A 10"
-      threshold: 0.2
-      interval: 0.5
+      command: "light -A 1"
+      threshold: 0
+      interval: 0.05
     down:
-      command: "light -U 10"
-      threshold: 0.2
-      interval: 0.5
+      command: "light -U 1"
+      threshold: 0
+      interval: 0.05

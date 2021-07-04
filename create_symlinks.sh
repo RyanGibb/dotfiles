@@ -10,8 +10,8 @@ LINKS=(
 )
 
 for link in "${LINKS[@]}"; do
-	echo "$link"
-	ln -sf "$PROJECT_DIR"/"$link" $HOME/"$(dirname "$link")"
+	echo "$HOME/$(dirname "$link") -> $PROJECT_DIR/$link"
+	ln -sf "$PROJECT_DIR/$link" "$HOME/$(dirname "$link")"
 done
 
 FIREFOX_DIR=$HOME/.mozilla/firefox/*.default-release/

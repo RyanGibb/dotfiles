@@ -78,6 +78,8 @@ bindsym $mod+v split v
 bindsym $mod+f         fullscreen toggle
 bindsym $mod+Shift+f   exec wtype -k F11
 bindsym $mod+Control+f fullscreen toggle global
+# toggle bar
+bindsym $mod+$alt+f    exec killall -SIGUSR1 waybar
 
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -227,8 +229,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
-
 set $mode_gaps Gaps | h/j/k/l/-/+/0 | 1 default | 2 none | 3 inner | 4 outer | 5 gutter
 mode "$mode_gaps" {
 	bindsym 1 gaps inner current set $inner_gap;\
@@ -288,7 +288,9 @@ mode "$mode_gaps" {
 }
 bindsym $mod+Shift+g mode "$mode_gaps"
 
-set $mode_system System (l)ock (e)xit (s)uspend (h)ibernate (r)eboot (p)oweroff (u) UEFI
+
+
+set $mode_system System (l)ock (e)xit (s)uspend (h)ibernate (r)eboot (p)oweroff (u)efi (S)+h
 mode "$mode_system" {
 	bindsym l exec loginctl lock-session,               mode "default"
 	bindsym e exec swaymsg exit,                        mode "default"
@@ -297,34 +299,11 @@ mode "$mode_system" {
 	bindsym r exec systemctl reboot,                    mode "default"
 	bindsym p exec systemctl poweroff -i,               mode "default"
 	bindsym u exec systemctl poweroff --firmware-setup, mode "default"
+	bindsym Shift+s exec systemctl suspend-then-hibernate, mode "default"
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 bindsym $mod+x mode "$mode_system"
-
-
-
-bindsym $mod+equal         $volume_inc
-bindsym $mod+minus         $volume_dec
-bindsym $mod+Shift+equal   $volume_inc_1
-bindsym $mod+Shift+minus   $volume_dec_1
-bindsym $mod+Control+equal $volume_inc_5
-bindsym $mod+Control+minus $volume_dec_5
-set $mode_control_volume Control volume | -/+ | (m)ute | m(i)ke mute
-mode "$mode_control_volume" {
-	bindsym minus         $volume_dec
-	bindsym equal         $volume_inc
-	bindsym Shift+equal   $volume_inc_1
-	bindsym Shift+minus   $volume_dec_1
-	bindsym Control+equal $volume_inc_5
-	bindsym Control+minus $volume_dec_5
-	bindsym m             $volume_mute
-	bindsym i             $volume_mic_mute
-	
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
 
 bindsym $mod+b       exec $browser
 bindsym $mod+Shift+b exec $browser -private-window
@@ -350,6 +329,29 @@ mode "$mode_launch" {
 }
 bindsym $mod+z mode "$mode_launch"
 
+
+
+bindsym $mod+equal         $volume_inc
+bindsym $mod+minus         $volume_dec
+bindsym $mod+Shift+equal   $volume_inc_1
+bindsym $mod+Shift+minus   $volume_dec_1
+bindsym $mod+Control+equal $volume_inc_5
+bindsym $mod+Control+minus $volume_dec_5
+set $mode_control_volume Control volume | -/+ | (m)ute | m(i)ke mute
+mode "$mode_control_volume" {
+	bindsym minus         $volume_dec
+	bindsym equal         $volume_inc
+	bindsym Shift+equal   $volume_inc_1
+	bindsym Shift+minus   $volume_dec_1
+	bindsym Control+equal $volume_inc_5
+	bindsym Control+minus $volume_dec_5
+	bindsym m             $volume_mute
+	bindsym i             $volume_mic_mute
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
 set $mode_control_player Control player | o stop | p play/pause | [ prev | ] next
 mode "$mode_control_player" {
 	bindsym o            $play_stop
@@ -362,10 +364,34 @@ mode "$mode_control_player" {
 }
 bindsym $mod+p mode "$mode_control_player"
 
-set $mode_control Control (v)olume (p)layer
+set $mode_control_backlight Control backlight | -/+
+mode "$mode_control_backlight" {
+	bindsym minus         $backlight_dec
+	bindsym equal         $backlight_inc
+	bindsym Shift+equal   $backlight_inc_1
+	bindsym Shift+minus   $backlight_dec_1
+	bindsym Control+equal $backlight_inc_5
+	bindsym Control+minus $backlight_dec_5
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+set $mode_control_dwt Control DWT | (e)nabled (d)isabled
+mode "$mode_control_dwt" {
+	bindsym e input type:touchpad dwt enabled;  mode "default"
+	bindsym d input type:touchpad dwt disabled; mode "default"
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+set $mode_control Control (v)olume (p)layer (b)acklight (d)wt
 mode "$mode_control" {
 	bindsym v mode "$mode_control_volume"
 	bindsym p mode "$mode_control_player"
+	bindsym b mode "$mode_control_backlight"
+	bindsym d mode "$mode_control_dwt"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -379,6 +405,9 @@ bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+y exec $SCRIPT_DIR/cycle_sink.sh
 bindsym $mod+u      $volume_mute
 bindsym $mod+i      $volume_mic_mute
+
+bindsym $mod+Shift+w   exec $SCRIPT_DIR/set_random_wallpaper.sh
+bindsym $mod+Control+w exec $SCRIPT_DIR/set_selected_wallpaper.sh
 
 bindsym $mod+Shift+c exec echo -n "$(zenity --calendar --text "")" | wl-copy
 

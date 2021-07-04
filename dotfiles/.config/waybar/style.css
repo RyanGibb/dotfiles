@@ -1,20 +1,22 @@
 @define-color light #eceff4;
-@define-color dark #282828;
-@define-color warning #fabd2f;
-@define-color critical #cc241d;
-@define-color mode #2e3440;
+@define-color dark #2e3440;
+
 @define-color workspaces #5e81ac;
 @define-color workspacesfocused #88c0d0;
-@define-color media_player #458588;
-@define-color sound #d3869b;
-@define-color network #b16286;
-@define-color memory #8ec07c;
-@define-color cpu #98971a;
-@define-color temp #b8bb26;
-@define-color layout #689d6a;
-@define-color battery #fabd2f;
-@define-color date #282828;
 @define-color urgent #d08770;
+
+@define-color mode #bf616a;
+@define-color media_player #88c0d0;
+@define-color pulseaudio #81a1c1;
+@define-color backlight #5e81ac;
+@define-color network #b48ead;
+@define-color disk #a3be8c;
+@define-color memory #ebcb8b;
+@define-color cpu #d08770;
+@define-color temperature #bf616a;
+@define-color updates #5e81ac;
+@define-color battery #8fbcbb;
+@define-color date #2e3440;
 
 * {
 	border: none;
@@ -24,7 +26,6 @@
 	padding: 0;
 }
 
-/* The whole bar */
 #waybar {
 	background: transparent;
 	color: @light;
@@ -32,25 +33,19 @@
 	font-size: 10pt;
 }
 
-#battery,
-#clock,
-#cpu,
-#custom-updates,
-#memory,
 #mode,
-#network,
+#custom-media_player,
 #pulseaudio,
+#network,
+#disk,
+#memory,
+#cpu,
 #temperature,
-#custom-alsa,
-#sndio,
+#custom-updates,
+#battery,
 #tray {
 	padding-left: 2px;
 	padding-right: 2px;
-}
-
-#mode {
-	color: @light;
-	background: @mode;
 }
 
 #workspaces button {
@@ -68,19 +63,34 @@
 	background: @urgent;
 }
 
+#mode {
+	color: @dark;
+	background: @mode;
+}
+
 #custom-media_player {
 	background: @media_player;
-	color: @light;
+	color: @dark;
 }
 
 #pulseaudio {
-	background: @sound;
+	background: @pulseaudio;
 	color: @dark;
+}
+
+#backlight {
+	background: @backlight;
+	color: @light;
 }
 
 #network {
 	background: @network;
-	color: @light;
+	color: @dark;
+}
+
+#disk {
+	background: @disk;
+	color: @dark;
 }
 
 #memory {
@@ -90,16 +100,16 @@
 
 #cpu {
 	background: @cpu;
-	color: @light;
+	color: @dark;
 }
 
 #temperature {
-	background: @temp;
+	background: @temperature;
 	color: @dark;
 }
 
 #custom-updates {
-	background: @layout;
+	background: @updates;
 	color: @light;
 }
 
@@ -123,51 +133,71 @@
 }
 
 #custom-arrow1 {
-	color: @sound;
+	color: @pulseaudio;
 	background: @media_player;
 }
 
 #custom-arrow2 {
-	color: @network;
-	background: @sound;
+	color: @backlight;
+	background: @pulseaudio;
 }
 
 #custom-arrow3 {
-	color: @memory;
-	background: @network;
+	color: @network;
+	background: @backlight;
 }
 
 #custom-arrow4 {
+	color: @disk;
+	background: @network;
+}
+
+#custom-arrow5 {
+	color: @memory;
+	background: @disk;
+}
+
+#custom-arrow6 {
 	color: @cpu;
 	background: @memory;
 }
 
-#custom-arrow5 {
-	color: @temp;
+#custom-arrow7 {
+	color: @temperature;
 	background: @cpu;
 }
 
-#custom-arrow6 {
-	color: @layout;
-	background: @temp;
-}
-
-#custom-arrow7 {
-	color: @battery;
-	background: @layout;
-}
-
 #custom-arrow8 {
+	color: @updates;
+	background: @temperature;
+}
+
+#custom-arrow9 {
+	color: @battery;
+	background: @updates;
+}
+
+#custom-arrow10 {
 	color: @date;
 	background: @battery;
 }
 
-#custom-arrow10 {
+#custom-arrow11 {
 	color: @workspaces;
 	background: @mode;
 }
 
-#custom-arrow11 {
+#custom-arrow12 {
 	color: @mode;
+	background: transparent;
+}
+
+#custom-arrow1v {
+	color: @updates;
+	background: transparent;
+}
+
+#custom-arrow2v {
+	color: @date;
 	background: transparent;
 }

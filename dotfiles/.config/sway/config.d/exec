@@ -1,7 +1,7 @@
 exec wl-paste -t text --watch clipman store
 
 exec swayidle -w\
-	lock 'swaylock -f -i "$WALLPAPER"'\
+	lock 'swaylock -f -i ~/pictures/wallpapers/default'\
 	timeout 300 'loginctl lock-session'\
 	timeout 600 'swaymsg "output * dpms off"'\
 	resume 'swaymsg "output * dpms on"'\
@@ -12,7 +12,8 @@ exec playerctld daemon
 exec mako
 exec thunar --daemon
 exec blueman-applet
-exec nm-applet --indicator
+#exec nm-applet --indicator
 exec gammastep-indicator
 exec fusuma
+exec .config/sway/scripts/bat_monitor.sh
 

@@ -13,6 +13,5 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 	export GRIM_DEFAULT_DIR=~/pictures/screenshots/
 	export TERMINAL=alacritty
 	export WLR_NO_HARDWARE_CURSORS=1
-	export WALLPAPER="$(find ~/pictures/wallpapers -type f | sort -R | tail -1)"
 	exec sway &> $HOME/.sway_log
 fi
