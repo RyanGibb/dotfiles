@@ -18,14 +18,15 @@
 		"custom/arrow2",
 		"backlight",
 		"custom/arrow3",
-		"network",
+		"idle_inhibitor",
 		"custom/arrow4",
-		"disk",
+		"network",
 		"custom/arrow5",
-		"memory",
+		"disk",
 		"custom/arrow6",
-		"cpu",
+		"memory",
 		"custom/arrow7",
+		"cpu",
 		"temperature",
 		"custom/arrow8",
 		"custom/updates",
@@ -55,11 +56,21 @@
 		"format-icons": " "
 	},
 
+	"idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
 	"pulseaudio": {
 		"scroll-step": 1,
-		"format": "{desc:.16} {icon} {volume:3}%",
-		"format-bluetooth": "{desc}{icon} {volume:3}%",
-		"format-muted": "{desc:.16}   {volume:3}%",
+		"format": "{desc:.16} {icon}{volume:3}% {format_source}",
+		"format-bluetooth": "{desc}{icon}{volume:3}% {format_source}",
+		"format-muted": "{desc:.16}  {volume:3}% {format_source}",
+		"format-source": "  ",
+		"format-source-muted": " ",
 		"format-icons": {
 			"headphones": "",
 			"handsfree": "",
@@ -67,7 +78,7 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", ""]
+			"default": ["  ", " ", ""]
 		},
 		"on-click": "pavucontrol",
 	},
@@ -170,7 +181,7 @@
 	],
 
 	"clock": {
-		"interval": 60,
+		"interval": 1,
 		"format": "{:%a %d/%m/%y %I:%M:%S%p}"
 	},
 	

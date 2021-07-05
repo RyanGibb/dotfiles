@@ -9,11 +9,11 @@
 @define-color media_player #88c0d0;
 @define-color pulseaudio #81a1c1;
 @define-color backlight #5e81ac;
+@define-color idle_inhibitor #8fbcbb;
 @define-color network #b48ead;
 @define-color disk #a3be8c;
 @define-color memory #ebcb8b;
 @define-color cpu #d08770;
-@define-color temperature #bf616a;
 @define-color updates #5e81ac;
 @define-color battery #8fbcbb;
 @define-color date #2e3440;
@@ -36,6 +36,8 @@
 #mode,
 #custom-media_player,
 #pulseaudio,
+#backlight,
+#idle_inhibitor,
 #network,
 #disk,
 #memory,
@@ -83,6 +85,11 @@
 	color: @light;
 }
 
+#idle_inhibitor {
+	background: @idle_inhibitor;
+	color: @light;
+}
+
 #network {
 	background: @network;
 	color: @dark;
@@ -104,7 +111,7 @@
 }
 
 #temperature {
-	background: @temperature;
+	background: @cpu;
 	color: @dark;
 }
 
@@ -115,6 +122,11 @@
 
 #battery {
 	background: @battery;
+	color: @dark;
+}
+
+#battery.hidden {
+	background: #000000;
 	color: @dark;
 }
 
@@ -143,33 +155,33 @@
 }
 
 #custom-arrow3 {
-	color: @network;
+	color: @idle_inhibitor;
 	background: @backlight;
 }
 
 #custom-arrow4 {
+	color: @network;
+	background: @idle_inhibitor;
+}
+
+#custom-arrow5 {
 	color: @disk;
 	background: @network;
 }
 
-#custom-arrow5 {
+#custom-arrow6 {
 	color: @memory;
 	background: @disk;
 }
 
-#custom-arrow6 {
+#custom-arrow7 {
 	color: @cpu;
 	background: @memory;
 }
 
-#custom-arrow7 {
-	color: @temperature;
-	background: @cpu;
-}
-
 #custom-arrow8 {
 	color: @updates;
-	background: @temperature;
+	background: @cpu;
 }
 
 #custom-arrow9 {
