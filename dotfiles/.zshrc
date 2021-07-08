@@ -13,6 +13,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 alias ls='ls -p --color=auto'
 alias pls='sudo $(fc -ln -1)'
 alias nv='nvim'
