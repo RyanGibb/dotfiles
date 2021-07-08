@@ -15,5 +15,6 @@ exec blueman-applet
 #exec nm-applet --indicator
 exec gammastep-indicator
 exec fusuma
+exec fcitx5 -d --replace
 exec .config/sway/scripts/bat_monitor.sh
 

@@ -13,5 +13,11 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 	export GRIM_DEFAULT_DIR=~/pictures/screenshots/
 	export TERMINAL=alacritty
 	export WLR_NO_HARDWARE_CURSORS=1
+
+	# for fcitx
+	export GTK_IM_MODULE=fcitx
+	export QT_IM_MODULE=fcitx
+	export XMODIFIERS=@im=fcitx
+
 	exec sway &> $HOME/.sway_log
 fi

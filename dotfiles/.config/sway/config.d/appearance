@@ -24,7 +24,6 @@ focus_follows_mouse no
 
 default_border pixel 4
 
-for_window [app_id="Alacritty"] border none
 for_window [app_id="zenity"] floating enable
 
 set $gnome-schema org.gnome.desktop.interface
