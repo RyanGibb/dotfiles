@@ -99,7 +99,7 @@
 
 	"memory": {
 		"interval": 10,
-		"format": " {}%",
+		"format": " {:2}%",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -109,7 +109,7 @@
 	"cpu": {
 		"interval": 10,
 		"tooltip": false,
-		"format": " {usage}%",
+		"format": " {usage:2}%",
 		"states": {
 		  "warning": 70,
 		  "critical": 90
