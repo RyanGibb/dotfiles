@@ -38,23 +38,24 @@ setopt PROMPT_SUBST
 # if tty
 if [[ $TERM == "linux" ]]; then
 	# Format the vcs_info_msg_0_ variable
-	zstyle ':vcs_info:git*' formats $'%s:%r/%b '
-	PROMPT='%F{cyan}%n@%m:%3~%f %# '
-	RPROMPT=$'${vcs_info_msg_0_}%D{%I:%M:%S%p} $(print -P -f "%3s" %?)'
+	zstyle ':vcs_info:git*' formats $'%F{green}%s:%b%f '
+	PROMPT='%F{blue}%n@%m%f:%F{cyan}%3~%f ${vcs_info_msg_0_}%# '
+	RPROMPT=$'%D{%I:%M:%S%p} $(print -P -f "%3s" %?)'
 # if pty
 else
-	zstyle ':vcs_info:git*' formats $'%F{green}\uE0B2%%S %s:%r/%b%K{red}'
+	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}\uE0B0%k %b'
 	PROMPT=${(j::Q)${(Z:Cn:):-$'
 		%S%F{blue}
-		%n@%m:%s%K{cyan}\uE0B0%f%s%k%F{cyan}%S
+		%n@%m:
+		%s%K{cyan}\uE0B0%S%f%k%F{cyan}
 		%3~
+		%F{cyan}
+		${vcs_info_msg_0_}
 		%s\uE0B0%f
 		" "%#" "
 	'}}
 	RPROMPT=${(j::Q)${(Z:Cn:):-$'
-		%F{red}
-		${vcs_info_msg_0_}
-		\uE0B2%f%s%k%F{red}%S
+		%F{red}\uE0B2%S%k
 		" " %D{%I:%M:%S%p}
 		%K{white}\uE0B2%f%s%k%F{white}%S
 		%(?.  √.$(print -P -f "%3s" %?))%f%s
