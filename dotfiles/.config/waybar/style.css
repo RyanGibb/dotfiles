@@ -1,6 +1,9 @@
 @define-color light #eceff4;
 @define-color dark #2e3440;
 
+@define-color warning #d08770;
+@define-color critical #bf616a;
+
 @define-color workspaces #5e81ac;
 @define-color workspacesfocused #88c0d0;
 @define-color urgent #d08770;
@@ -125,9 +128,12 @@
 	color: @dark;
 }
 
-#battery.hidden {
-	background: #000000;
-	color: @dark;
+#battery.warning {
+	color: @warning;
+}
+
+#battery.critical {
+	color: @critical;
 }
 
 #tray {

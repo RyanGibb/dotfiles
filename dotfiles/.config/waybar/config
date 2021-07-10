@@ -138,7 +138,7 @@
 			"critical": 5
 		},
 		"format": " {capacity}%{time}", // Icon: bolt
-		"format-discharging": "{icon} {capacity}%{time}",
+		"format-discharging": "{icon} {power:2.1}W {capacity}%{time}",
 		"format-icons": ["", "", "", "", ""],
 		"format-time": "{H:>2}:{M:<02}",
 		"tooltip": false
