@@ -35,15 +35,19 @@ precmd() { vcs_info }
 
 setopt PROMPT_SUBST
 
+# zsh-autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # if tty
 if [[ $TERM == "linux" ]]; then
 	# Format the vcs_info_msg_0_ variable
-	zstyle ':vcs_info:git*' formats $'%F{green}%s:%b%f '
+	zstyle ':vcs_info:git*' formats $'%F{green}%s:%.32b%f '
 	PROMPT='%F{blue}%n@%m%f:%F{cyan}%3~%f ${vcs_info_msg_0_}%# '
-	RPROMPT=$'%D{%I:%M:%S%p} $(print -P -f "%3s" %?)'
+	RPROMPT=$'%D{%I:%M:%S%p} %3?'
 # if pty
 else
-	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}\uE0B0%k %b'
+	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=4
+	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}\uE0B0%k %.32b'
 	PROMPT=${(j::Q)${(Z:Cn:):-$'
 		%S%F{blue}
 		%n@%m:
@@ -56,19 +60,13 @@ else
 	'}}
 	RPROMPT=${(j::Q)${(Z:Cn:):-$'
 		%F{red}\uE0B2%S%k
-		" " %D{%I:%M:%S%p}
+		" " %D{%I:%M:%S%p}
 		%K{white}\uE0B2%f%s%k%F{white}%S
-		%(?.  √.$(print -P -f "%3s" %?))%f%s
+		%(?.  √.%3?)%f%s
 	'}}
 fi
 
 
-
-if [[ $TERM != "linux" ]]; then
-	
-else	
-	
-fi
 
 # https://wiki.archlinux.org/index.php/zsh#Key_bindings
 
