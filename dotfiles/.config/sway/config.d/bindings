@@ -317,16 +317,18 @@ set $unicode_selector exec rofimoji --selector wofi --skin-tone neutral --prompt
 bindsym $mod+apostrophe       $emoji_selector
 bindsym $mod+Shift+apostrophe $unicode_selector
 
-set $mode_launch Launch (m)essenger (e)moji (f)iles (v)olume (b)luetooth (n)etwork
+set $mode_launch Launch (m)essenger (f)iles (v)olume (b)luetooth (n)etwork (e)moji (u)nicode
 mode "$mode_launch" {
 	bindsym m exec caprine; mode "default"
-	bindsym e $unicode_selector; mode "default"
 	bindsym f exec xdg-open ~; mode "default"
 	bindsym v exec exec pavucontrol; mode "default"
 	bindsym b exec exec blueman-manager; mode "default"
 	bindsym n exec $term -e nmtui; mode "default"
+	bindsym e $emoji_selector; mode "default"
+	bindsym u $unicode_selector; mode "default"
 
-	bindsym Return mode "default"
+	bindsym Return exec $term; mode "default"
+
 	bindsym Escape mode "default"
 }
 bindsym $mod+z mode "$mode_launch"
