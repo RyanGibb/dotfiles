@@ -369,7 +369,7 @@ mode "$mode_control_player" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
-bindsym $mod+p mode "$mode_control_player"
+bindsym $mod+o mode "$mode_control_player"
 
 set $mode_control_backlight Control backlight | -/+
 mode "$mode_control_backlight" {
@@ -405,13 +405,18 @@ mode "$mode_control" {
 }
 bindsym $mod+c mode "$mode_control"
 
-bindsym Print      exec grim
-bindsym $mod+Print exec grim -g "$(slurp)"
-bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Print              exec grim - | wl-copy
+bindsym Shift+Print        exec grim - | swappy -f -
+bindsym Control+Print      exec grim
+bindsym $mod+Print         exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | wl-copy
+bindsym $mod+Shift+Print   exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | swappy -f -
+bindsym $mod+Control+Print exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)"
 
 bindsym $mod+y exec $SCRIPT_DIR/cycle_sink.sh
 bindsym $mod+u      $volume_mute
 bindsym $mod+i      $volume_mic_mute
+
+bindsym $mod+p exec wdisplays
 
 bindsym $mod+Shift+w   exec $SCRIPT_DIR/set_random_wallpaper.sh
 bindsym $mod+Control+w exec $SCRIPT_DIR/set_selected_wallpaper.sh
