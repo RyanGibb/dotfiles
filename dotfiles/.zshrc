@@ -49,7 +49,7 @@ if [[ $TERM == "linux" ]]; then
 # if pty
 else
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=4
-	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green} %k %.32b'
+	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}%k %.32b'
 	PROMPT=${(j::Q)${(Z:Cn:):-$'
 		%S%F{blue}
 		%n@%m:
