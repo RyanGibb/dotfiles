@@ -38,6 +38,8 @@ setopt PROMPT_SUBST
 # zsh-autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+eval $(thefuck --alias)
+
 # if tty
 if [[ $TERM == "linux" ]]; then
 	# Format the vcs_info_msg_0_ variable
