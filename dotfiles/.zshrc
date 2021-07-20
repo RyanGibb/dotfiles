@@ -42,26 +42,26 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [[ $TERM == "linux" ]]; then
 	# Format the vcs_info_msg_0_ variable
 	zstyle ':vcs_info:git*' formats $'%F{green}%s:%.32b%f '
-	PROMPT='%F{blue}%n@%m%f:%F{cyan}%3~%f ${vcs_info_msg_0_}%# '
+	PROMPT='%F{blue}%n@%m%f:%F{cyan}%3~%f${vcs_info_msg_0_}%# '
 	RPROMPT=$'%D{%I:%M:%S%p} %3?'
 # if pty
 else
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=4
-	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}\uE0B0%k %.32b'
+	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green} %k %.32b'
 	PROMPT=${(j::Q)${(Z:Cn:):-$'
 		%S%F{blue}
 		%n@%m:
-		%s%K{cyan}\uE0B0%S%f%k%F{cyan}
+		%s%K{cyan}%S%f%k%F{cyan}
 		%3~
 		%F{cyan}
 		${vcs_info_msg_0_}
-		%s\uE0B0%f
+		%s%f
 		" "%#" "
 	'}}
 	RPROMPT=${(j::Q)${(Z:Cn:):-$'
-		%F{red}\uE0B2%S%k
-		" " %D{%I:%M:%S%p}
-		%K{white}\uE0B2%f%s%k%F{white}%S
+		%F{red}%S%k
+		" "%D{%I:%M:%S%p}
+		%K{white}%f%s%k%F{white}%S
 		%(?.  √.%3?)%f%s
 	'}}
 fi
