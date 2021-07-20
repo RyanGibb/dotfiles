@@ -1,6 +1,6 @@
 [{
 	"layer": "top",
-	"position": "top",
+	"position": "bottom",
 	"output": "!DVI-D-1",
 
 	"modules-left": [

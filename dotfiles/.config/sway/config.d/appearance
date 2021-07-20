@@ -7,9 +7,10 @@ hide_edge_borders smart
 smart_borders on
 smart_gaps on
 
-gaps inner $inner_gap
-gaps outer $outer_gap
-gaps top   $top_gap
+gaps inner  $inner_gap
+gaps outer  $outer_gap
+gaps top    $top_gap
+gaps bottom $bottom_gap
 
 # class                 border  backgr.   text    indicator child_border
 client.focused          #5e81ac #5e81acaf #eceff4 #85b6f2   #5e81ac
