@@ -143,8 +143,8 @@
 			"warning": 15,
 			"critical": 5
 		},
-		"format": " {capacity}%{time}", // Icon: bolt
-		"format-discharging": "{icon} {capacity}% {power:2.1}W{time}",
+		"format": "{icon} {capacity}% {time:5}", // Icon: bolt
+		"format-discharging": " {icon} {capacity}% {time:5}",
 		"format-icons": ["", "", "", "", ""],
 		"format-time": "{H:>2}:{M:<02}",
 		"tooltip": false
