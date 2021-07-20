@@ -54,7 +54,7 @@
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon}{percent}%",
-		"format-icons": " "
+		"format-icons": ""
 	},
 
 	"idle_inhibitor": {
@@ -69,38 +69,38 @@
 		"scroll-step": 1,
 		"format": "{desc:.16} {icon}{volume:3}% {format_source}",
 		"format-bluetooth": "{desc}{icon}{volume:3}% {format_source}",
-		"format-muted": "{desc:.16}  {volume:3}% {format_source}",
-		"format-source": "  ",
-		"format-source-muted": " ",
+		"format-muted": "{desc:.16} {volume:3}% {format_source}",
+		"format-source": "",
+		"format-source-muted": "",
 		"format-icons": {
 			"headphones": "",
-			"handsfree": "",
-			"headset": "",
+			"handsfree": "",
+			"headset": "",
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["  ", " ", ""]
+			"default": ["", ""]
 		},
 		"on-click": "pavucontrol",
 	},
 
 	"network": {
 		"interval": 10,
-		"format-wifi": " {signalStrength}% {essid:.17}  {bandwidthDownBits:>}  {bandwidthUpBits:>}",
-		"format-ethernet": " {ifname}",
-		"format-disconnected": " 🗙",
+		"format-wifi": "{signalStrength}% {essid:.17}{bandwidthDownBits:>}{bandwidthUpBits:>}",
+		"format-ethernet": "{ifname}",
+		"format-disconnected": "睊",
 		"tooltip-format": "{ifname}: {ipaddr}",
 	},
 
 	"disk": {
 		"interval": 3600, // hourly
-		"format": " {free}",
+		"format": "{free}",
 		"path": "/"
 	},
 
 	"memory": {
 		"interval": 10,
-		"format": " {:2}%",
+		"format": "{:2}%",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -110,7 +110,7 @@
 	"cpu": {
 		"interval": 10,
 		"tooltip": false,
-		"format": "{usage:3}%",
+		"format": "{usage:3}%",
 		"states": {
 		  "warning": 70,
 		  "critical": 90
@@ -126,7 +126,7 @@
 		"thermal-zone": 5,
 		"interval": 10,
 		"critical-threshold": 90,
-		"format": " {temperatureC:3}°",
+		"format": "{temperatureC:3}°",
 		"tooltip": false
 	},
 
@@ -156,7 +156,8 @@
 
 	"clock": {
 		"interval": 1,
-		"format": "{:%a %d/%m/%y %I:%M:%S%p}"
+		"format": "{:%a %d/%m/%y %I:%M:%S%p}",
+		"tooltip": false
 	},
 
 	"custom/arrow0":  { "format": "", "tooltip": false },
