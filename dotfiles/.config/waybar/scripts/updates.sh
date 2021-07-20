@@ -13,5 +13,5 @@ else
 fi
 num_aur_updates="$(echo "$aur_updates" | wc -l)"
 
-echo " $num_arch_updates  $num_aur_updates"
+echo "$num_arch_updates $num_aur_updates"
 

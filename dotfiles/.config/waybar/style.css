@@ -36,23 +36,6 @@
 	font-size: 10pt;
 }
 
-#mode,
-#custom-media_player,
-#pulseaudio,
-#backlight,
-#idle_inhibitor,
-#network,
-#disk,
-#memory,
-#cpu,
-#temperature,
-#custom-updates,
-#battery,
-#tray {
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
 #workspaces button {
 	padding-left: 4px;
 	padding-right: 4px;

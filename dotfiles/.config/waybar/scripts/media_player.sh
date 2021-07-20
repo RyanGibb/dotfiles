@@ -45,10 +45,10 @@ while : ; do
 			string+="  "
 		fi
 		if [[ $player = *"spotify"* ]]; then
-			string+="  "
+			string+=""
 		fi
 		if [[ $player = *"firefox"* ]]; then
-			string+="  "
+			string+=""
 		fi
 		string+="$player_string"
 	done
