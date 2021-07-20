@@ -10,4 +10,4 @@ user_pref("ui.context_menus.after_mouseup", true);
 // Use userChrome.css
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
-user_pref("browser.toolbars.bookmarks.visibility", "newtab");
+user_pref("browser.toolbars.bookmarks.visibility", "never");
