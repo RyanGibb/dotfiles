@@ -1,0 +1,24 @@
+[Added Associations]
+image/jpeg=gimp.desktop;feh.desktop;
+image/png=gimp.desktop;feh.desktop;
+image/svg+xml=gimp.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;calibre-ebook-viewer.desktop;calibre-ebook-edit.desktop;
+text/markdown=code-oss.desktop;org.gnome.gedit.desktop;
+application/pdf=firefox.desktop;org.gnome.Evince.desktop;
+
+[Default Applications]
+application/x-bittorrent=transmission.desktop
+x-scheme-handler/magnet=transmission.desktop
+application/pdf=org.pwmt.zathura.desktop
+image=feh.desktop
+image/jpg=feh.desktop
+image/jpeg=feh.desktop
+image/png=feh.desktop
+image/svg=feh.desktop
+inode/directory=thunar.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+application/lrf=calibre-lrfviewer.desktop
