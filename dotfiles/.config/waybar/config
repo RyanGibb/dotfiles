@@ -27,6 +27,7 @@
 		"memory",
 		"custom/arrow7",
 		"cpu",
+		"custom/loadavg",
 		"temperature",
 		"custom/arrow8",
 		"custom/updates",
@@ -109,18 +110,23 @@
 	"cpu": {
 		"interval": 10,
 		"tooltip": false,
-		"format": " {usage:2}%",
+		"format": "{usage:3}%",
 		"states": {
 		  "warning": 70,
 		  "critical": 90
 		}
 	},
 
+	"custom/loadavg": {
+		"format": " {:2.3}",
+		"exec": "cut -d ' ' -f1 /proc/loadavg",
+	},
+
 	"temperature": {
 		"thermal-zone": 5,
 		"interval": 10,
 		"critical-threshold": 90,
-		"format": " {temperatureC}°",
+		"format": " {temperatureC:3}°",
 		"tooltip": false
 	},
 

@@ -113,6 +113,11 @@
 	color: @dark;
 }
 
+#custom-loadavg {
+	background: @cpu;
+	color: @dark;
+}
+
 #temperature {
 	background: @cpu;
 	color: @dark;
