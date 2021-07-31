@@ -71,11 +71,6 @@
 	color: @light;
 }
 
-#idle_inhibitor {
-	background: @idle_inhibitor;
-	color: @light;
-}
-
 #network {
 	background: @network;
 	color: @dark;
@@ -128,6 +123,18 @@
 	background: @date;
 }
 
+#idle_inhibitor {
+	padding-left: 4px;
+	padding-right: 4px;
+	background: @dark;
+	color: @light;
+}
+
+#idle_inhibitor.activated {
+	background: @light;
+	color: @dark;
+}
+
 #clock {
 	background: @date;
 	color: @light;
@@ -149,51 +156,46 @@
 }
 
 #custom-arrow3 {
-	color: @idle_inhibitor;
+	color: @network;
 	background: @backlight;
 }
 
 #custom-arrow4 {
-	color: @network;
-	background: @idle_inhibitor;
-}
-
-#custom-arrow5 {
 	color: @disk;
 	background: @network;
 }
 
-#custom-arrow6 {
+#custom-arrow5 {
 	color: @memory;
 	background: @disk;
 }
 
-#custom-arrow7 {
+#custom-arrow6 {
 	color: @cpu;
 	background: @memory;
 }
 
-#custom-arrow8 {
+#custom-arrow7 {
 	color: @updates;
 	background: @cpu;
 }
 
-#custom-arrow9 {
+#custom-arrow8 {
 	color: @battery;
 	background: @updates;
 }
 
-#custom-arrow10 {
+#custom-arrow9 {
 	color: @date;
 	background: @battery;
 }
 
-#custom-arrow11 {
+#custom-arrow10 {
 	color: @workspaces;
 	background: @mode;
 }
 
-#custom-arrow12 {
+#custom-arrow11 {
 	color: @mode;
 	background: transparent;
 }

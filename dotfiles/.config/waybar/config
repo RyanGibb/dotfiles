@@ -5,9 +5,9 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"custom/arrow11",
+		"custom/arrow10",
 		"sway/mode",
-		"custom/arrow12",
+		"custom/arrow11"
 	],
 
 	"modules-right": [
@@ -18,58 +18,64 @@
 		"custom/arrow2",
 		"backlight",
 		"custom/arrow3",
-		"idle_inhibitor",
-		"custom/arrow4",
 		"network",
-		"custom/arrow5",
+		"custom/arrow4",
 		"disk",
-		"custom/arrow6",
+		"custom/arrow5",
 		"memory",
-		"custom/arrow7",
+		"custom/arrow6",
 		"cpu",
 		"custom/loadavg",
 		"temperature",
-		"custom/arrow8",
+		"custom/arrow7",
 		"custom/updates",
-		"custom/arrow9",
+		"custom/arrow8",
 		"battery",
-		"custom/arrow10",
+		"custom/arrow9",
 		"tray",
+		"idle_inhibitor",
 		"clock"
 	],
-
-	"sway/window": {
-		"max-length": 50,
-		"tooltip": false
-	},
 
 	"sway/mode": {
 		"tooltip": false
 	},
 
+	"wlr/taskbar": {
+		"on-click": "activate",
+		"active-first": true
+	},
+
 	"custom/media_player": {
 		"exec": "~/.config/waybar/scripts/media_player.sh",
+		"tooltip": false
 	},
 
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon}{percent}%",
-		"format-icons": ""
+		"format-icons": [
+			"🌑",
+			"🌒",
+			"🌓",
+			"🌔",
+			"🌕",
+		],
 	},
 
 	"idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
 
 	"pulseaudio": {
 		"scroll-step": 1,
-		"format": "{desc:.16} {icon}{volume:3}% {format_source}",
-		"format-bluetooth": "{desc}{icon}{volume:3}% {format_source}",
-		"format-muted": "{desc:.16} {volume:3}% {format_source}",
+		"format": "{icon}{volume:3}% {format_source}",
+		"format-bluetooth": "{icon}{volume:3}% {format_source}",
+		"format-muted": "{volume:3}% {format_source}",
 		"format-source": "",
 		"format-source-muted": "",
 		"format-icons": {
@@ -86,10 +92,10 @@
 
 	"network": {
 		"interval": 10,
-		"format-wifi": "{signalStrength}% {essid:.17}{bandwidthDownBits:>}{bandwidthUpBits:>}",
+		"format-wifi": "{signalStrength}% {essid:.17}",
 		"format-ethernet": "{ifname}",
 		"format-disconnected": "睊 ",
-		"tooltip-format": "{ifname}: {ipaddr}",
+		"tooltip-format": "{ifname}: {ipaddr}{bandwidthDownBits:>}{bandwidthUpBits:>}",
 	},
 
 	"disk": {
@@ -109,7 +115,6 @@
 
 	"cpu": {
 		"interval": 10,
-		"tooltip": false,
 		"format": "{usage:3}%",
 		"states": {
 		  "warning": 70,
@@ -120,6 +125,7 @@
 	"custom/loadavg": {
 		"format": " {:2.3}",
 		"exec": "cut -d ' ' -f1 /proc/loadavg",
+		"tooltip": false,
 	},
 
 	"temperature": {
@@ -143,8 +149,9 @@
 			"warning": 15,
 			"critical": 5
 		},
-		"format": "{icon} {capacity}% {time:5}", // Icon: bolt
-		"format-discharging": " {icon} {capacity}% {time:5}",
+		"format": "{time:5}{icon} {capacity}%", // Icon: bolt
+		"format-discharging": "{time:5}  {icon} {capacity}%",
+		"format-full": "{time:5}  {icon} {capacity}%",
 		"format-icons": ["", "", "", "", ""],
 		"format-time": "{H:>2}:{M:<02}",
 		"tooltip": false
@@ -170,15 +177,14 @@
 	"custom/arrow7":  { "format": "", "tooltip": false },
 	"custom/arrow8":  { "format": "", "tooltip": false },
 	"custom/arrow9":  { "format": "", "tooltip": false },
-	"custom/arrow10": { "format": "", "tooltip": false },
+	"custom/arrow10": { "format": "", "tooltip": false },
 	"custom/arrow11": { "format": "", "tooltip": false },
-	"custom/arrow12": { "format": "", "tooltip": false },
 },
 {
 	"layer": "top",
 	"position": "bottom",
 	"output": "DVI-D-1",
-    "modules-left": [
+	"modules-left": [
 		"sway/workspaces",
 		"custom/arrow1v"
 	],
