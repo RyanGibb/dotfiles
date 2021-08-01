@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname $0)/dotfiles"
+cd "$(dirname $0)/home"
 PROJECT_DIR="$(pwd)"
 
 LINKS=(
