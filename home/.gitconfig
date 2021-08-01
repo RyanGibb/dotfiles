@@ -2,8 +2,10 @@
 	email = ryangibb321@gmail.com
 	name = Ryan Gibb
 [alias]
-	st = status
+	s = status
 	ci = commit
+	cm = commit --message
+	ca = commit --amend
 	br = branch
 	co = checkout
 	df = diff
@@ -11,3 +13,7 @@
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	ls = ls-files
+	a = add
+	aa = add --all
+	ps = push
+	pf = push --force
