@@ -147,8 +147,7 @@
 	"battery": {
 		"interval": 10,
 		"states": {
-			"warning": 15,
-			"critical": 5
+			"warning": 20
 		},
 		"format": "{time:5}{icon} {capacity}%", // Icon: bolt
 		"format-discharging": "{time:5}  {icon} {capacity}%",
