@@ -204,7 +204,7 @@ bindsym $mod+Shift+r reload
 
 
 
-mode "resize" {
+mode "Resize" {
 	bindsym h resize shrink width  25px or 5ppt
 	bindsym j resize grow   height 25px or 5ppt
 	bindsym k resize shrink height 25px or 5ppt
@@ -229,7 +229,7 @@ mode "resize" {
 	bindsym Escape mode "default"
 	bindsym $mod+r mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize"
 
 set $mode_gaps Gaps | h/j/k/l/-/+/0 | 1 default | 2 none | 3 inner | 4 outer | 5 gutter
 mode "$mode_gaps" {
