@@ -11,6 +11,10 @@ if [[ "$arch_updates_rc" == "2" ]]; then
 else
 	num_arch_updates="$(echo "$arch_updates" | wc -l)"
 fi
-num_aur_updates="$(echo "$aur_updates" | wc -l)"
+if [[ "$aur_updates" == "" ]]; then
+	num_aur_updates=0
+else
+	num_aur_updates="$(echo "$aur_updates" | wc -l)"
+fi
 
 echo "$num_arch_updates$num_aur_updates"
