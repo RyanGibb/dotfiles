@@ -1,2 +1,8 @@
 output DVI-D-1 transform 90 pos 0 0
 
+set $laptop_output eDP-1
+bindswitch --reload --locked lid:on  output $laptop_output disable
+bindswitch --reload --locked lid:off output $laptop_output enable
+
+exec_always $SCRIPT_DIR/laptop_clamshell.sh $laptop_output
+
