@@ -17,6 +17,8 @@ exec gammastep-indicator
 
 exec mako
 exec fusuma
+exec kanshi
 exec fcitx5 -d --replace
+
 exec .config/sway/scripts/bat_monitor.sh
 
