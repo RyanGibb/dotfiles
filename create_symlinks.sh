@@ -4,8 +4,7 @@ cd "$(dirname $0)/home"
 PROJECT_DIR="$(pwd)"
 
 LINKS=(
-	$(find .config -maxdepth 2 -type f -printf '.config/%P\n')
-	$(find .config -maxdepth 2 -mindepth 2 -type d -printf '.config/%P\n')
+	$(find .config -type f -printf '.config/%P\n')
 	$(find . -maxdepth 1 -type f -printf '%P\n')
 	.local/share/applications/*.desktop
 )
