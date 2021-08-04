@@ -201,6 +201,7 @@ bindsym $mod+t exec $SCRIPT_DIR/title_ws.sh
 bindsym $mod+Tab exec $SCRIPT_DIR/window_switcher.sh
 
 bindsym $mod+Shift+r reload
+bindsym $mod+Control+r exec "pkill waybar; waybar"
 
 
 
