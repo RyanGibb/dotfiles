@@ -1,5 +1,5 @@
 
-exec $SCRIPT_DIR/set_random_wallpaper.sh
+#exec $SCRIPT_DIR/set_random_wallpaper.sh
 
 output * bg ~/pictures/wallpapers/default fill
 
@@ -30,8 +30,8 @@ for_window [app_id="zenity"] floating enable
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-	gsettings set $gnome-schema gtk-theme 'Nordic'
-	gsettings set $gnome-schema icon-theme 'breeze-dark'
+	gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+	gsettings set $gnome-schema icon-theme 'Papirus'
 	gsettings set $gnome-schema font-name 'Noto Sans 11'
 	seat seat0 xcursor_theme 'Adwaita' 48
 }
