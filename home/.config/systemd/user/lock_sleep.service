@@ -1,9 +1,0 @@
-[Unit]
-Description=Lock the screen before sleep
-Before=sleep.target
-
-[Service]
-ExecStart=/usr/bin/loginctl lock-session
-
-[Install]
-WantedBy=sleep.target
