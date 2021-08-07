@@ -1,5 +1,6 @@
 *{
 	font-family: monospace;
+	outline-style: none;
 }
 
 window {
@@ -29,7 +30,7 @@ window {
 	color: #eceff4;
 }
 
-#entry:nth-child(even){
+#entry:nth-child(odd){
 	background-color: #3b4252;
 }
 
