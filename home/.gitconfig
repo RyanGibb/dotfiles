@@ -15,5 +15,6 @@
 	ls = ls-files
 	a = add
 	aa = add --all
+	ap = add --patch
 	ps = push
 	pf = push --force
