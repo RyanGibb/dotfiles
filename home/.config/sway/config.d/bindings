@@ -394,6 +394,8 @@ mode "$mode_control_player" {
 }
 bindsym $mod+o mode "$mode_control_player"
 
+bindsym $mod+semicolon $play_pause
+
 set $mode_control_backlight Control backlight | -/+
 mode "$mode_control_backlight" {
 	bindsym minus         $backlight_dec
@@ -439,6 +441,8 @@ bindsym $mod+y       exec $SCRIPT_DIR/cycle_sink.sh
 bindsym $mod+Shift+y exec $SCRIPT_DIR/cycle_sink.sh back
 bindsym $mod+u       $volume_mute
 bindsym $mod+i       $volume_mic_mute
+
+bindsym $mod+BackSpace exec makoctl dismiss
 
 bindsym $mod+p exec wdisplays
 
