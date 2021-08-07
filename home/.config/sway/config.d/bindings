@@ -232,6 +232,28 @@ mode "Resize" {
 }
 bindsym $mod+r mode "Resize"
 
+bindsym $mod+Control+h resize shrink width  25px or 5ppt
+bindsym $mod+Control+j resize grow   height 25px or 5ppt
+bindsym $mod+Control+k resize shrink height 25px or 5ppt
+bindsym $mod+Control+l resize grow   width  25px or 5ppt
+
+bindsym $mod+Control+Left  resize shrink width  25px or 5ppt
+bindsym $mod+Control+Down  resize grow   height 25px or 5ppt
+bindsym $mod+Control+Up    resize shrink height 25px or 5ppt
+bindsym $mod+Control+Right resize grow   width  25px or 5ppt
+
+bindsym $mod+Control+Shift+h resize shrink width  1px
+bindsym $mod+Control+Shift+j resize grow   height 1px
+bindsym $mod+Control+Shift+k resize shrink height 1px
+bindsym $mod+Control+Shift+l resize grow   width  1px
+
+bindsym $mod+Control+Shift+Left  resize shrink width  1px
+bindsym $mod+Control+Shift+Down  resize grow   height 1px
+bindsym $mod+Control+Shift+Up    resize shrink height 1px
+bindsym $mod+Control+Shift+Right resize grow   width  1px
+
+
+
 set $mode_gaps Gaps | h/j/k/l/-/+/0 | 1 default | 2 none | 3 inner | 4 outer | 5 gutter
 mode "$mode_gaps" {
 	bindsym 1 gaps inner current set $inner_gap;\
