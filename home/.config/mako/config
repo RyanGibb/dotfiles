@@ -8,3 +8,7 @@ background-color=#2e3440e0
 text-color=#eceff4
 border-color=#4c566a
 progress-color=source #d08770
+
+[mode=away]
+default-timeout=0
+ignore-timeout=1
