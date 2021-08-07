@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CACHE_FILE=.cache/pactl_sink_index
+CACHE_FILE=~/.cache/pactl_sink_index
 
 sinks=($(pactl list short sinks | cut -f 2))
 
@@ -15,7 +15,13 @@ if [[ "$i" == "" ]]; then
 	done
 fi
 
-i=$(((i+1)%${#sinks[@]}))
+if [[ "$1" == "back" ]]; then
+	j=-1
+else
+	j=1
+fi
+
+i=$(((i+j)%${#sinks[@]}))
 
 echo "$i" > $CACHE_FILE
 

@@ -413,9 +413,10 @@ bindsym $mod+Print         exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | wl
 bindsym $mod+Shift+Print   exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | swappy -f -
 bindsym $mod+Control+Print exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)"
 
-bindsym $mod+y exec $SCRIPT_DIR/cycle_sink.sh
-bindsym $mod+u      $volume_mute
-bindsym $mod+i      $volume_mic_mute
+bindsym $mod+y       exec $SCRIPT_DIR/cycle_sink.sh
+bindsym $mod+Shift+y exec $SCRIPT_DIR/cycle_sink.sh back
+bindsym $mod+u       $volume_mute
+bindsym $mod+i       $volume_mic_mute
 
 bindsym $mod+p exec wdisplays
 
