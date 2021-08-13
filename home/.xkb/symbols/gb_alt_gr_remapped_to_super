@@ -1,0 +1,5 @@
+xkb_symbols "basic" {
+        include "gb"
+        key <RALT> { [ Super_L, Super_R ] };
+};
+

@@ -5,6 +5,7 @@ PROJECT_DIR="$(pwd)"
 
 LINKS=(
 	$(find .config -type f -printf '.config/%P\n')
+	.xkb
 	$(find . -maxdepth 1 -type f -printf '%P\n')
 	.local/share/applications/*.desktop
 )
