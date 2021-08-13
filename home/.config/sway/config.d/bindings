@@ -347,8 +347,8 @@ set $mode_launch Launch (m)essenger (f)iles (v)olume (b)luetooth (n)etwork (e)mo
 mode "$mode_launch" {
 	bindsym m exec caprine; mode "default"
 	bindsym f exec xdg-open ~; mode "default"
-	bindsym v exec exec pavucontrol; mode "default"
-	bindsym b exec exec blueman-manager; mode "default"
+	bindsym v exec pavucontrol; mode "default"
+	bindsym b exec blueman-manager; mode "default"
 	bindsym n exec $term -e nmtui; mode "default"
 	bindsym e $emoji_selector; mode "default"
 	bindsym u $unicode_selector; mode "default"
@@ -367,7 +367,7 @@ bindsym $mod+Shift+equal   $volume_inc_1
 bindsym $mod+Shift+minus   $volume_dec_1
 bindsym $mod+Control+equal $volume_inc_5
 bindsym $mod+Control+minus $volume_dec_5
-set $mode_control_volume Control volume | -/+ | (m)ute | m(i)ke mute
+set $mode_control_volume Control volume | -/+ | (v) mute | (m)ike mute
 mode "$mode_control_volume" {
 	bindsym minus         $volume_dec
 	bindsym equal         $volume_inc
@@ -375,8 +375,8 @@ mode "$mode_control_volume" {
 	bindsym Shift+minus   $volume_dec_1
 	bindsym Control+equal $volume_inc_5
 	bindsym Control+minus $volume_dec_5
-	bindsym m             $volume_mute
-	bindsym i             $volume_mic_mute
+	bindsym v             $volume_mute
+	bindsym m             $volume_mic_mute
 	
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -391,10 +391,10 @@ mode "$mode_control_player" {
 	
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
-}
-bindsym $mod+o mode "$mode_control_player"
 
-bindsym $mod+semicolon $play_pause
+	bindsym $mod+p $play_pause; mode "default"
+}
+bindsym $mod+p mode "$mode_control_player"
 
 set $mode_control_backlight Control backlight | -/+
 mode "$mode_control_backlight" {
@@ -440,11 +440,10 @@ bindsym $mod+Control+Print exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)"
 bindsym $mod+y       exec $SCRIPT_DIR/cycle_sink.sh
 bindsym $mod+Shift+y exec $SCRIPT_DIR/cycle_sink.sh back
 bindsym $mod+u       $volume_mute
-bindsym $mod+i       $volume_mic_mute
 
 bindsym $mod+BackSpace exec makoctl dismiss
 
-bindsym $mod+p exec wdisplays
+bindsym $mod+m exec wdisplays
 
 bindsym $mod+Shift+w   exec $SCRIPT_DIR/set_random_wallpaper.sh
 bindsym $mod+Control+w exec $SCRIPT_DIR/set_selected_wallpaper.sh
