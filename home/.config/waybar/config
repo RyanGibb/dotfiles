@@ -86,7 +86,7 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", ""]
+			"default": ""
 		},
 		"on-click": "pavucontrol",
 	},
@@ -107,7 +107,7 @@
 
 	"memory": {
 		"interval": 10,
-		"format": "{:2}%",
+		"format": "{:2}%",
 		"states": {
 			"warning": 70,
 			"critical": 90
