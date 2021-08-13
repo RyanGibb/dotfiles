@@ -27,6 +27,7 @@ alias nv='nvim'
 alias o='xdg-open'
 alias se='sudoedit'
 alias su='su -p'
+alias ssh='TERM=xterm ssh'
 
 bindkey "^R" history-incremental-search-backward
 
