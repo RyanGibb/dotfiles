@@ -1,6 +1,6 @@
 swipe:
   3:
-    threshhold: 0.01
+    threshhold: 0
     interval: 1
     left:
       sendkey: "LEFTALT+RIGHT"
@@ -11,7 +11,7 @@ swipe:
     down:
       sendkey: "LEFTCTRL+LEFTSHIFT+TAB"
   4:
-    threshhold: 0.01
+    threshhold: 0
     interval: 1
     left:
       sendkey: "LEFTMETA+DOT"
