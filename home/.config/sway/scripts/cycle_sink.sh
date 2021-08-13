@@ -1,19 +1,14 @@
 #!/usr/bin/env bash
 
-CACHE_FILE=~/.cache/pactl_sink_index
-
 sinks=($(pactl list short sinks | cut -f 2))
 
-i="$(cat $CACHE_FILE)"
-if [[ "$i" == "" ]]; then
-	default_sink=$(pactl info | sed -En 's/Default Sink: (.*)/\1/p')
+default_sink=$(pactl info | sed -En 's/Default Sink: (.*)/\1/p')
 
-	for i in "${!sinks[@]}"; do
-		if [[ "${sinks[$i]}" = "${default_sink}" ]]; then
-			break
-		fi
-	done
-fi
+for i in "${!sinks[@]}"; do
+	if [[ "${sinks[$i]}" = "${default_sink}" ]]; then
+		break
+	fi
+done
 
 if [[ "$1" == "back" ]]; then
 	j=-1
@@ -21,8 +16,16 @@ else
 	j=1
 fi
 
-i=$(((i+j)%${#sinks[@]}))
+prev_i=$i
 
-echo "$i" > $CACHE_FILE
+# find first sink succesfully set as default
+while [[ "$(pactl info | sed -En 's/Default Sink: (.*)/\1/p')" == "$default_sink" ]]; do
+	i=$(((i+j)%${#sinks[@]}))
+	pactl set-default-sink "${sinks[$i]}"
+	#  break if no other sink
+	if [ $prev_i -eq $i ]; then
+		break
+	fi
+	echo $i
+done
 
-pactl set-default-sink "${sinks[$i]}"
