@@ -28,9 +28,7 @@ alias o='xdg-open'
 alias se='sudoedit'
 alias su='su -p'
 alias ssh='TERM=xterm ssh'
-
-bindkey "^R" history-incremental-search-backward
-
+ 
 # fix right prompt indent
 ZLE_RPROMPT_INDENT=0
 
@@ -75,7 +73,26 @@ else
 fi
 
 
+# set window title
+# https://wiki.archlinux.org/title/zsh#xterm_title
+autoload -Uz add-zsh-hook
 
+function xterm_title_precmd () {
+	print -Pn -- '\e]2;zsh %n@%m:%~\a'
+}
+
+function xterm_title_preexec () {
+	print -Pn -- '\e]2;zsh %n@%m:%~ %# ' && print -n -- "${(q)1}\a"
+}
+
+if [[ "$TERM" != "linux" ]]; then
+	add-zsh-hook -Uz precmd xterm_title_precmd
+	add-zsh-hook -Uz preexec xterm_title_preexec
+fi
+
+
+
+# set keybindings
 # https://wiki.archlinux.org/index.php/zsh#Key_bindings
 
 # create a zkbd compatible hash;
@@ -98,6 +115,7 @@ key[Control-Left]="${terminfo[kLFT5]}"
 key[Control-Right]="${terminfo[kRIT5]}"
 key[Control-Backspace]="^H"
 key[Control-Delete]="^[[3;5~"
+key[Control-R]="^R"
 
 # setup key accordingly
 [[ -n "${key[Home]}"              ]] && bindkey -- "${key[Home]}"              beginning-of-line
@@ -116,6 +134,7 @@ key[Control-Delete]="^[[3;5~"
 [[ -n "${key[Control-Right]}"     ]] && bindkey -- "${key[Control-Right]}"     forward-word
 [[ -n "${key[Control-Backspace]}" ]] && bindkey -- "${key[Control-Backspace]}" backward-kill-word
 [[ -n "${key[Control-Delete]}"    ]] && bindkey -- "${key[Control-Delete]}"    kill-word
+[[ -n "${key[Control-R]}"         ]] && bindkey -- "${key[Control-R]}"         history-incremental-search-backward
 
 # finally, make sure the terminal is in application mode, when zle is active.
 # only then are the values from $terminfo valid.
