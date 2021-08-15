@@ -442,6 +442,20 @@ mode "$mode_control" {
 }
 bindsym $mod+c mode "$mode_control"
 
+set $idle_mode Idle mode (i)nhibit | (d)pms | (l)ock | (s)uspend
+mode "$idle_mode" {
+	bindsym i exec pkill swayidle; exec $SCRIPT_DIR/swayidle_inhibit.sh; mode "default
+	bindsym d exec pkill swayidle; exec $SCRIPT_DIR/swayidle_dpms.sh;    mode "default"
+	bindsym l exec pkill swayidle; exec $SCRIPT_DIR/swayidle_lock.sh;    mode "default"
+	bindsym s exec pkill swayidle; exec $SCRIPT_DIR/swayidle_suspend.sh; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+i mode "$idle_mode"
+
+
 bindsym Print              exec grim - | wl-copy
 bindsym Shift+Print        exec grim - | swappy -f -
 bindsym Control+Print      exec grim
