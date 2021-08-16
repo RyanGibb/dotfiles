@@ -471,7 +471,8 @@ bindsym $mod+Shift+y exec $SCRIPT_DIR/cycle_sink.sh back
 bindsym $mod+m       $volume_mute
 bindsym $mod+Shift+m $volume_mic_mute
 
-bindsym $mod+BackSpace exec makoctl dismiss
+bindsym $mod+BackSpace       exec makoctl dismiss
+bindsym $mod+Shift+BackSpace exec makoctl dismiss --all
 
 bindsym $mod+p exec wdisplays
 
