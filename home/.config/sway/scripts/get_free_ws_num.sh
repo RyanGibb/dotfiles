@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 ws_nums=($(swaymsg -t get_workspaces \
 	| jq '[.[] | select(.num != -1) | .num ] | sort | .[]'))
 

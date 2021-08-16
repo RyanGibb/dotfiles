@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 NEW_WS_NUM="$($(dirname "$0")/get_free_ws_num.sh)"
 
 WORKSPACES=$(swaymsg -t get_workspaces \
@@ -9,5 +10,5 @@ WORKSPACES=$(swaymsg -t get_workspaces \
 WORKSPACES="${WORKSPACES}
 $NEW_WS_NUM"
 
-NAME=$(echo "$WORKSPACES" | wofi -d -p "$1") || exit
+NAME=$(echo "$WORKSPACES" | wofi -d -p "Select workspace:") || exit
 echo "$NAME"

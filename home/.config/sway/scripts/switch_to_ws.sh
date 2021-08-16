@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-PROMPT='switch to workspace: '
-NAME=$($(dirname "$0")/select_ws.sh "$PROMPT") || exit
+
+NAME=$($(dirname "$0")/select_ws.sh) || exit
+
 swaymsg workspace \"$NAME\"
