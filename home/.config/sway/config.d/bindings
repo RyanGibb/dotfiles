@@ -19,27 +19,27 @@ set $backlight_dec_1 exec light -U 1
 set $backlight_inc_5 exec light -A 5
 set $backlight_dec_5 exec light -U 5
 
-bindsym XF86AudioRaiseVolume         $volume_inc
-bindsym XF86AudioLowerVolume         $volume_dec
-bindsym Shift+XF86AudioRaiseVolume   $volume_inc_1
-bindsym Shift+XF86AudioLowerVolume   $volume_dec_1
-bindsym Control+XF86AudioRaiseVolume $volume_inc_5
-bindsym Control+XF86AudioLowerVolume $volume_dec_5
-bindsym XF86AudioMute                $volume_mute
-bindsym XF86AudioMicMute             $volume_mic_mute
+bindsym --locked XF86AudioRaiseVolume         $volume_inc
+bindsym --locked XF86AudioLowerVolume         $volume_dec
+bindsym --locked Shift+XF86AudioRaiseVolume   $volume_inc_1
+bindsym --locked Shift+XF86AudioLowerVolume   $volume_dec_1
+bindsym --locked Control+XF86AudioRaiseVolume $volume_inc_5
+bindsym --locked Control+XF86AudioLowerVolume $volume_dec_5
+bindsym --locked XF86AudioMute                $volume_mute
+bindsym --locked XF86AudioMicMute             $volume_mic_mute
 
-bindsym XF86AudioPlay  $play_pause
-bindsym XF86AudioPause $play_pause
-bindsym XF86AudioPrev  $play_prev
-bindsym XF86AudioNext  $play_next
-bindsym XF86AudioStop  $play_stop
+bindsym --locked XF86AudioPlay  $play_pause
+bindsym --locked XF86AudioPause $play_pause
+bindsym --locked XF86AudioPrev  $play_prev
+bindsym --locked XF86AudioNext  $play_next
+bindsym --locked XF86AudioStop  $play_stop
 
-bindsym XF86MonBrightnessUp           $backlight_inc
-bindsym XF86MonBrightnessDown         $backlight_dec
-bindsym Shift+XF86MonBrightnessUp     $backlight_inc_1
-bindsym Shift+XF86MonBrightnessDown   $backlight_dec_1
-bindsym Control+XF86MonBrightnessUp   $backlight_inc_5
-bindsym Control+XF86MonBrightnessDown $backlight_dec_5
+bindsym --locked XF86MonBrightnessUp           $backlight_inc
+bindsym --locked XF86MonBrightnessDown         $backlight_dec
+bindsym --locked Shift+XF86MonBrightnessUp     $backlight_inc_1
+bindsym --locked Shift+XF86MonBrightnessDown   $backlight_dec_1
+bindsym --locked Control+XF86MonBrightnessUp   $backlight_inc_5
+bindsym --locked Control+XF86MonBrightnessDown $backlight_dec_5
 
 floating_modifier $mod
 
@@ -366,12 +366,12 @@ bindsym $mod+z mode "$mode_launch"
 
 
 
-bindsym $mod+equal         $volume_inc
-bindsym $mod+minus         $volume_dec
-bindsym $mod+Shift+equal   $volume_inc_1
-bindsym $mod+Shift+minus   $volume_dec_1
-bindsym $mod+Control+equal $volume_inc_5
-bindsym $mod+Control+minus $volume_dec_5
+bindsym --locked $mod+equal         $volume_inc
+bindsym --locked $mod+minus         $volume_dec
+bindsym --locked $mod+Shift+equal   $volume_inc_1
+bindsym --locked $mod+Shift+minus   $volume_dec_1
+bindsym --locked $mod+Control+equal $volume_inc_5
+bindsym --locked $mod+Control+minus $volume_dec_5
 set $mode_control_volume Control volume | -/+ | (m) mute | Shift+(m)ic mute
 mode "$mode_control_volume" {
 	bindsym minus         $volume_dec
