@@ -21,7 +21,21 @@ swipe:
       command: "light -A 1"
       threshold: 0
       interval: 0.05
+      keypress:
+        LEFTSHIFT:
+          command: "pactl set-sink-volume @DEFAULT_SINK@ +1%"
+          threshold: 0
+          interval: 0.05
     down:
       command: "light -U 1"
       threshold: 0
       interval: 0.05
+      keypress:
+        LEFTSHIFT:
+          command: "pactl set-sink-volume @DEFAULT_SINK@ -1%"
+          threshold: 0
+          interval: 0.05
+plugin:
+  inputs:
+    libinput_command_input:
+      show-keycodes: true
