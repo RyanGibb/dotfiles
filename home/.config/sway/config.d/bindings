@@ -345,6 +345,9 @@ set $unicode_selector exec rofimoji --selector wofi --skin-tone neutral --prompt
 bindsym $mod+apostrophe       $emoji_selector
 bindsym $mod+Shift+apostrophe $unicode_selector
 
+bindsym $mod+semicolon       exec $SCRIPT_DIR/bluetooth_device.sh
+bindsym $mod+Shift+semicolon exec $SCRIPT_DIR/bluetooth_device.sh disconnect
+
 set $mode_launch Launch (m)essenger (f)iles (v)olume (b)luetooth (n)etwork (e)moji (u)nicode
 mode "$mode_launch" {
 	bindsym m exec caprine; mode "default"
