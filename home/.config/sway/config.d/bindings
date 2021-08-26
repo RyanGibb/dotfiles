@@ -48,8 +48,8 @@ bindsym $mod+Shift+Return exec $term -o background_opacity=1
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d         exec wofi --show drun --allow-images -a
-bindsym $mod+Shift+d   exec wofi --show run
+bindsym $mod+d         exec wofi -i --show drun --allow-images -a
+bindsym $mod+Shift+d   exec wofi -i --show run
 bindsym $mod+Control+d exec "$(zenity --entry --text "run")"
 
 bindsym $mod+h focus left
@@ -471,8 +471,7 @@ bindsym $mod+Shift+y exec $SCRIPT_DIR/cycle_sink.sh back
 bindsym $mod+m       $volume_mute
 bindsym $mod+Shift+m $volume_mic_mute
 
-bindsym $mod+BackSpace       exec makoctl dismiss
-bindsym $mod+Shift+BackSpace exec makoctl dismiss --all
+bindsym $mod+BackSpace exec makoctl dismiss --all
 
 bindsym $mod+p exec wdisplays
 
