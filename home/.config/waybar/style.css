@@ -20,7 +20,6 @@
 @define-color battery #8fbcbb;
 @define-color date #2e3440;
 
-
 * {
 	border-radius: 5px;
 	min-height: 0;
@@ -28,14 +27,8 @@
 	margin: 0;
 }
 
-.horizontal {
-	padding: 2px;
-	margin: 0px;
-}
-
-window#waybar {
+#waybar {
 	background: transparent;
-	color: @light;
 	font-family: monospace;
 	font-size: 10pt;
 }
@@ -49,7 +42,7 @@ tooltip label {
 
 #workspaces button {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	color: @dark;
 	background: @workspaces;
     border-bottom: 3px solid transparent;
@@ -66,56 +59,56 @@ tooltip label {
 
 #mode {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	color: @dark;
 	background: @mode;
 }
 
 #custom-media_player {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @media_player;
 	color: @dark;
 }
 
 #pulseaudio {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @pulseaudio;
 	color: @dark;
 }
 
 #backlight {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @backlight;
 	color: @light;
 }
 
 #network {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @network;
 	color: @dark;
 }
 
 #disk {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @disk;
 	color: @dark;
 }
 
 #memory {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @memory;
 	color: @dark;
 }
 
 #cpu {
 	padding: 0 0 0 4px;
-	margin: 0 0 0 2px;
+	margin: 2px 0 2px 2px;
 	border-radius: 5px 0 0 5px;
 	background: @cpu;
 	color: @dark;
@@ -123,7 +116,7 @@ tooltip label {
 
 #custom-loadavg {
 	padding: 0;
-	margin: 0;
+	margin: 2px 0;
 	border-radius: 0;
 	background: @cpu;
 	color: @dark;
@@ -131,7 +124,7 @@ tooltip label {
 
 #temperature {
 	padding: 0 4px 0 0;
-	margin: 0 2px 0 0;
+	margin: 2px 2px 2px 0;
 	border-radius: 0 5px 5px 0;
 	background: @cpu;
 	color: @dark;
@@ -139,27 +132,27 @@ tooltip label {
 
 #custom-updates {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @updates;
 	color: @light;
 }
 
 #battery {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @battery;
 	color: @dark;
 }
 
 #battery.warning {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	color: @warning;
 }
 
 #idle_inhibitor {
 	padding: 0 6px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @dark;
 	color: @light;
 }
@@ -171,17 +164,18 @@ tooltip label {
 
 #tray {
 	padding: 0 4px;
-	margin: 0 2px;
+	margin: 2px 2px;
 	background: @date;
 }
 
 #tray * {
-	padding: 2;
+	padding: 2px;
 	margin: 0;
 }
 
 #clock {
-	padding: 2;
+	padding: 0 4px;
+	margin: 2px 2px;
 	background: @date;
 	color: @light;
 }
