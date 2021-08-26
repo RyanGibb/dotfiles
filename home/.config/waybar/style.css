@@ -20,107 +20,146 @@
 @define-color battery #8fbcbb;
 @define-color date #2e3440;
 
+
 * {
-	border: none;
-	border-radius: 0;
+	border-radius: 5px;
 	min-height: 0;
-	margin: 0;
 	padding: 0;
+	margin: 0;
 }
 
-#waybar {
+.horizontal {
+	padding: 2px;
+	margin: 0px;
+}
+
+window#waybar {
 	background: transparent;
 	color: @light;
 	font-family: monospace;
 	font-size: 10pt;
 }
 
+tooltip {
+	background: @dark;
+}
+tooltip label {
+	color: @light;
+}  
+
 #workspaces button {
-	padding-left: 4px;
-	padding-right: 4px;
+	padding: 0 4px;
+	margin: 0 2px;
 	color: @dark;
 	background: @workspaces;
+    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-	background: @workspacesfocused;
+    border-bottom: 3px solid @workspacesfocused;
 }
 
 #workspaces button.urgent {
 	background: @urgent;
+    border-bottom: 3px solid transparent;
 }
 
 #mode {
+	padding: 0 4px;
+	margin: 0 2px;
 	color: @dark;
 	background: @mode;
 }
 
 #custom-media_player {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @media_player;
 	color: @dark;
 }
 
 #pulseaudio {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @pulseaudio;
 	color: @dark;
 }
 
 #backlight {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @backlight;
 	color: @light;
 }
 
 #network {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @network;
 	color: @dark;
 }
 
 #disk {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @disk;
 	color: @dark;
 }
 
 #memory {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @memory;
 	color: @dark;
 }
 
 #cpu {
+	padding: 0 0 0 4px;
+	margin: 0 0 0 2px;
+	border-radius: 5px 0 0 5px;
 	background: @cpu;
 	color: @dark;
 }
 
 #custom-loadavg {
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
 	background: @cpu;
 	color: @dark;
 }
 
 #temperature {
+	padding: 0 4px 0 0;
+	margin: 0 2px 0 0;
+	border-radius: 0 5px 5px 0;
 	background: @cpu;
 	color: @dark;
 }
 
 #custom-updates {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @updates;
 	color: @light;
 }
 
 #battery {
+	padding: 0 4px;
+	margin: 0 2px;
 	background: @battery;
 	color: @dark;
 }
 
 #battery.warning {
+	padding: 0 4px;
+	margin: 0 2px;
 	color: @warning;
 }
 
-#tray {
-	background: @date;
-}
-
 #idle_inhibitor {
-	padding-left: 4px;
-	padding-right: 4px;
+	padding: 0 6px;
+	margin: 0 2px;
 	background: @dark;
 	color: @light;
 }
@@ -130,77 +169,19 @@
 	color: @dark;
 }
 
+#tray {
+	padding: 0 4px;
+	margin: 0 2px;
+	background: @date;
+}
+
+#tray * {
+	padding: 2;
+	margin: 0;
+}
+
 #clock {
+	padding: 2;
 	background: @date;
 	color: @light;
-}
-
-#custom-arrow0 {
-	color: @media_player;
-	background: transparent;
-}
-
-#custom-arrow1 {
-	color: @pulseaudio;
-	background: @media_player;
-}
-
-#custom-arrow2 {
-	color: @backlight;
-	background: @pulseaudio;
-}
-
-#custom-arrow3 {
-	color: @network;
-	background: @backlight;
-}
-
-#custom-arrow4 {
-	color: @disk;
-	background: @network;
-}
-
-#custom-arrow5 {
-	color: @memory;
-	background: @disk;
-}
-
-#custom-arrow6 {
-	color: @cpu;
-	background: @memory;
-}
-
-#custom-arrow7 {
-	color: @updates;
-	background: @cpu;
-}
-
-#custom-arrow8 {
-	color: @battery;
-	background: @updates;
-}
-
-#custom-arrow9 {
-	color: @date;
-	background: @battery;
-}
-
-#custom-arrow10 {
-	color: @workspaces;
-	background: @mode;
-}
-
-#custom-arrow11 {
-	color: @mode;
-	background: transparent;
-}
-
-#custom-arrow1v {
-	color: @updates;
-	background: transparent;
-}
-
-#custom-arrow2v {
-	color: @date;
-	background: transparent;
 }

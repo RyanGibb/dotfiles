@@ -5,35 +5,23 @@
 
 	"modules-left": [
 		"sway/workspaces",
-		"custom/arrow10",
 		"sway/mode",
-		"custom/arrow11"
 	],
 
 	"modules-right": [
-		"custom/arrow0",
 		"custom/media_player",
-		"custom/arrow1",
 		"pulseaudio",
-		"custom/arrow2",
 		"backlight",
-		"custom/arrow3",
 		"network",
-		"custom/arrow4",
 		"disk",
-		"custom/arrow5",
 		"memory",
-		"custom/arrow6",
 		"cpu",
 		"custom/loadavg",
 		"temperature",
-		"custom/arrow7",
 		"custom/updates",
-		"custom/arrow8",
 		"battery",
-		"custom/arrow9",
-		"tray",
 		"idle_inhibitor",
+		"tray",
 		"clock"
 	],
 
@@ -61,14 +49,6 @@
 			"🌔",
 			"🌕",
 		],
-	},
-
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
 	},
 
 	"pulseaudio": {
@@ -157,6 +137,14 @@
 		"tooltip": false
 	},
 
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
 	"tray": {
 		"icon-size": 16
 	},
@@ -166,19 +154,6 @@
 		"format": "{:%a %d/%m/%y %I:%M:%S%p}",
 		"tooltip": false
 	},
-
-	"custom/arrow0":  { "format": "", "tooltip": false },
-	"custom/arrow1":  { "format": "", "tooltip": false },
-	"custom/arrow2":  { "format": "", "tooltip": false },
-	"custom/arrow3":  { "format": "", "tooltip": false },
-	"custom/arrow4":  { "format": "", "tooltip": false },
-	"custom/arrow5":  { "format": "", "tooltip": false },
-	"custom/arrow6":  { "format": "", "tooltip": false },
-	"custom/arrow7":  { "format": "", "tooltip": false },
-	"custom/arrow8":  { "format": "", "tooltip": false },
-	"custom/arrow9":  { "format": "", "tooltip": false },
-	"custom/arrow10": { "format": "", "tooltip": false },
-	"custom/arrow11": { "format": "", "tooltip": false },
 },
 {
 	"layer": "top",
@@ -186,19 +161,33 @@
 	"output": "DVI-D-1",
 	"modules-left": [
 		"sway/workspaces",
-		"custom/arrow1v"
+		"sway/mode"
 	],
 
 	"modules-right": [
-		"custom/arrow2v",
+		"idle_inhibitor",
+		"tray",
 		"clock"
 	],
+
+	"sway/mode": {
+		"tooltip": false
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
+	"tray": {
+		"icon-size": 16
+	},
 
 	"clock": {
 		"interval": 1,
 		"format": "{:%a %d/%m/%y %I:%M:%S%p}"
 	},
-	
-	"custom/arrow1v": { "format": "", "tooltip": false },
-	"custom/arrow2v": { "format": "", "tooltip": false },
 }]
