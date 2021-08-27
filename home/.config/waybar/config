@@ -41,7 +41,7 @@
 
 	"backlight": {
 		"device": "intel_backlight",
-		"format": "{icon}{percent}%",
+		"format": "{icon}{percent:>3}%",
 		"format-icons": [
 			"🌑",
 			"🌒",
