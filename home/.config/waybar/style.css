@@ -21,7 +21,7 @@
 @define-color date #2e3440;
 
 * {
-	border-radius: 8px;
+	border-radius: 10px;
 	min-height: 0;
 	padding: 0;
 }

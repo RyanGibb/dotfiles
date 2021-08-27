@@ -75,7 +75,7 @@
 		"interval": 10,
 		"format-wifi": "{signalStrength}% {essid:.17}",
 		"format-ethernet": "{ifname}",
-		"format-disconnected": "睊 ",
+		"format-disconnected": "睊",
 		"tooltip-format": "{ifname}: {ipaddr}{bandwidthDownBits:>}{bandwidthUpBits:>}",
 	},
 
