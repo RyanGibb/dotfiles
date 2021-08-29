@@ -116,7 +116,7 @@ tooltip label {
 #cpu {
 	padding: 0 0 0 4px;
 	margin: 4px 0 4px 2px;
-	border-radius: 5px 0 0 5px;
+	border-radius: 10px 0 0 10px;
 	background: @cpu;
 	color: @dark;
 }
@@ -132,7 +132,7 @@ tooltip label {
 #temperature {
 	padding: 0 4px 0 0;
 	margin: 4px 2px 4px 0;
-	border-radius: 0 5px 5px 0;
+	border-radius: 0 10px 10px 0;
 	background: @cpu;
 	color: @dark;
 }
