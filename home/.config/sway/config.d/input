@@ -5,7 +5,14 @@ input type:keyboard {
 
 input "1:1:AT_Translated_Set_2_keyboard" {
 	xkb_layout gb_alt_gr_remapped_to_super
-	xkb_numlock enable
+}
+
+input "1452:592:Keychron_K2" {
+	xkb_layout gb_alt_gr_remapped_to_super
+}
+
+input "1452:592:Keychron_Keychron_K2" {
+	xkb_layout gb_alt_gr_remapped_to_super
 }
 
 input type:pointer {

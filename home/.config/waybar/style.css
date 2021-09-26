@@ -4,20 +4,20 @@
 @define-color warning #bf616a;
 
 @define-color workspaces #5e81ac;
-@define-color workspacesfocused #88c0d0;
+@define-color workspacesvisible #81a1c1;
+@define-color workspacesfocused #8fbcbb;
 @define-color urgent #bf616a;
 
 @define-color mode #bf616a;
 @define-color media_player #88c0d0;
 @define-color pulseaudio #81a1c1;
 @define-color backlight #5e81ac;
-@define-color idle_inhibitor #8fbcbb;
 @define-color network #b48ead;
 @define-color disk #a3be8c;
 @define-color memory #ebcb8b;
 @define-color cpu #d08770;
 @define-color updates #5e81ac;
-@define-color battery #8fbcbb;
+@define-color power #8fbcbb;
 @define-color date #2e3440;
 
 * {
@@ -48,13 +48,16 @@ tooltip label {
     border-bottom: 3px solid transparent;
 }
 
-#workspaces button.focused {
+#workspaces button.current_output.visible {
+    border-bottom: 3px solid @workspacesvisible;
+}
+
+#workspaces button.current_output.focused {
     border-bottom: 3px solid @workspacesfocused;
 }
 
 #workspaces button.urgent {
 	background: @urgent;
-    border-bottom: 3px solid transparent;
 }
 
 #mode {
@@ -114,25 +117,22 @@ tooltip label {
 }
 
 #cpu {
-	padding: 0 0 0 4px;
-	margin: 4px 0 4px 2px;
-	border-radius: 10px 0 0 10px;
+	padding: 0 4px;
+	margin: 4px 2px;
 	background: @cpu;
 	color: @dark;
 }
 
 #custom-loadavg {
-	padding: 0;
-	margin: 4px 0;
-	border-radius: 0;
+	padding: 0 4px;
+	margin: 4px 2px;
 	background: @cpu;
 	color: @dark;
 }
 
 #temperature {
-	padding: 0 4px 0 0;
-	margin: 4px 2px 4px 0;
-	border-radius: 0 10px 10px 0;
+	padding: 0 4px;
+	margin: 4px 2px;
 	background: @cpu;
 	color: @dark;
 }
@@ -149,7 +149,7 @@ tooltip label {
 	padding: 0 4px;
 	margin: 4px 2px;
 	min-width: 20px;
-	background: @battery;
+	background: @power;
 	color: @dark;
 }
 
@@ -160,16 +160,19 @@ tooltip label {
 	color: @warning;
 }
 
-#idle_inhibitor {
+#custom-keyboard_battery {
 	padding: 0 4px;
 	margin: 4px 2px;
 	min-width: 20px;
-	background: @dark;
-	color: @light;
+	background: @power;
+	color: @dark;
 }
 
-#idle_inhibitor.activated {
-	background: @light;
+#custom-idle {
+	padding: 0 4px;
+	margin: 4px 2px;
+	min-width: 20px;
+	background: @power;
 	color: @dark;
 }
 

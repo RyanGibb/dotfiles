@@ -94,9 +94,9 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 bindsym $mod+a focus parent
-bindsym $mod+q focus child
-
+bindsym $mod+z focus child
 bindsym $mod+Shift+a exec $SCRIPT_DIR/focus_root.sh
+bindsym $mod+Shift+z exec $SCRIPT_DIR/focus_leaf.sh
 
 set $ws1  "1"
 set $ws2  "2"
@@ -204,6 +204,8 @@ bindsym $mod+Tab exec $SCRIPT_DIR/window_switcher.sh
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+r exec "pkill waybar; waybar"
+
+bindsym button2 kill
 
 
 
@@ -318,8 +320,6 @@ mode "$mode_gaps" {
 }
 bindsym $mod+Shift+g mode "$mode_gaps"
 
-
-
 set $mode_system System (l)ock (e)xit (s)uspend (h)ibernate (r)eboot (p)oweroff (u)efi (S)+h
 mode "$mode_system" {
 	bindsym l exec loginctl lock-session,                  mode "default"
@@ -334,37 +334,6 @@ mode "$mode_system" {
 	bindsym Escape mode "default"
 }
 bindsym $mod+x mode "$mode_system"
-
-bindsym $mod+b       exec $browser
-bindsym $mod+Shift+b exec $browser -private-window
-
-bindsym $mod+backslash exec xdg-open ~
-
-set $emoji_selector   exec rofimoji --selector wofi --skin-tone neutral --prompt "" -a copy
-set $unicode_selector exec rofimoji --selector wofi --skin-tone neutral --prompt "" --files all -a copy
-bindsym $mod+apostrophe       $emoji_selector
-bindsym $mod+Shift+apostrophe $unicode_selector
-
-bindsym $mod+semicolon       exec $SCRIPT_DIR/bluetooth_device.sh
-bindsym $mod+Shift+semicolon exec $SCRIPT_DIR/bluetooth_device.sh disconnect
-
-set $mode_launch Launch (m)essenger (f)iles (v)olume (b)luetooth (n)etwork (e)moji (u)nicode
-mode "$mode_launch" {
-	bindsym m exec caprine; mode "default"
-	bindsym f exec xdg-open ~; mode "default"
-	bindsym v exec pavucontrol; mode "default"
-	bindsym b exec blueman-manager; mode "default"
-	bindsym n exec $term -e nmtui; mode "default"
-	bindsym e $emoji_selector; mode "default"
-	bindsym u $unicode_selector; mode "default"
-
-	bindsym Return exec $term; mode "default"
-
-	bindsym Escape mode "default"
-}
-bindsym $mod+z mode "$mode_launch"
-
-
 
 bindsym --locked $mod+equal         $volume_inc
 bindsym --locked $mod+minus         $volume_dec
@@ -423,6 +392,7 @@ mode "$mode_control_backlight" {
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
+bindsym $mod+u mode "$mode_control_backlight"
 
 set $mode_control_dwt Control DWT | (e)nabled (d)isabled
 mode "$mode_control_dwt" {
@@ -447,24 +417,44 @@ bindsym $mod+c mode "$mode_control"
 
 set $idle_mode Idle mode (i)nhibit | (d)pms | (l)ock | (s)uspend
 mode "$idle_mode" {
-	bindsym i exec pkill swayidle; exec $SCRIPT_DIR/swayidle_inhibit.sh; mode "default
-	bindsym d exec pkill swayidle; exec $SCRIPT_DIR/swayidle_dpms.sh;    mode "default"
-	bindsym l exec pkill swayidle; exec $SCRIPT_DIR/swayidle_lock.sh;    mode "default"
-	bindsym s exec pkill swayidle; exec $SCRIPT_DIR/swayidle_suspend.sh; mode "default"
+	bindsym i exec $SCRIPT_DIR/swayidle_inhibit.sh; mode "default
+	bindsym d exec $SCRIPT_DIR/swayidle_dpms.sh;    mode "default"
+	bindsym l exec $SCRIPT_DIR/swayidle_lock.sh;    mode "default"
+	bindsym s exec $SCRIPT_DIR/swayidle_suspend.sh; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
-bindsym $mod+i mode "$idle_mode"
+bindsym $mod+b       exec $browser
+bindsym $mod+Shift+b exec $browser -private-window
 
+bindsym $mod+backslash exec xdg-open ~
+
+set $emoji_selector   exec rofimoji --selector wofi --skin-tone neutral --prompt "" -a copy
+set $unicode_selector exec rofimoji --selector wofi --skin-tone neutral --prompt "" --files all -a copy
+bindsym $mod+apostrophe       $emoji_selector
+bindsym $mod+Shift+apostrophe $unicode_selector
+
+bindsym $mod+semicolon         exec $SCRIPT_DIR/bluetooth_device.sh
+bindsym $mod+Shift+semicolon   exec $SCRIPT_DIR/bluetooth_device.sh disconnect
+bindsym $mod+Control+semicolon exec $SCRIPT_DIR/network_connect.sh
+
+bindsym $mod+i mode "$idle_mode"
 
 bindsym Print              exec grim - | wl-copy
 bindsym Shift+Print        exec grim - | swappy -f -
-bindsym Control+Print      exec grim
+bindsym Control+Print      exec grim $HOME/pictures/capture/screenshot"_$(date -Iseconds)".mp4
 bindsym $mod+Print         exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | wl-copy
 bindsym $mod+Shift+Print   exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | swappy -f -
-bindsym $mod+Control+Print exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)"
+bindsym $mod+Control+Print exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)"\
+	$HOME/pictures/capture/screenshot"_$(date -Iseconds)".mp4
+
+bindsym $alt+Shift+Print exec wf-recorder\
+	-o $(swaymsg -t get_outputs | jq -r '.[] | select(.type=="output" and .focused).name')\
+	-f $HOME/pictures/capture/recording"_$(date -Iseconds)".mp4
+
+bindsym $alt+Print exec pkill -SIGINT wf-recorder
 
 bindsym $mod+y       exec $SCRIPT_DIR/cycle_sink.sh
 bindsym $mod+Shift+y exec $SCRIPT_DIR/cycle_sink.sh back
@@ -472,6 +462,7 @@ bindsym $mod+m       $volume_mute
 bindsym $mod+Shift+m $volume_mic_mute
 
 bindsym $mod+BackSpace exec makoctl dismiss --all
+bindsym $mod+Shift+BackSpace exec makoctl dismiss
 
 bindsym $mod+p exec wdisplays
 

@@ -1,7 +1,7 @@
 [{
 	"layer": "bottom",
 	"position": "bottom",
-	"output": "!DVI-D-1",
+	"output": "!Ancor Communications Inc VG248 FALMQS093846",
 
 	"modules-left": [
 		"sway/workspaces",
@@ -20,7 +20,8 @@
 		"temperature",
 		"custom/updates",
 		"battery",
-		"idle_inhibitor",
+		"custom/keyboard_battery",
+		"custom/idle",
 		"tray",
 		"clock"
 	],
@@ -35,12 +36,11 @@
 	},
 
 	"custom/media_player": {
-		"exec": "~/.config/waybar/scripts/media_player.sh",
+		"exec": "~/.config/waybar/scripts/media_player",
 		"tooltip": false
 	},
 
 	"backlight": {
-		"device": "intel_backlight",
 		"format": "{icon}{percent:>3}%",
 		"format-icons": [
 			"🌑",
@@ -131,18 +131,25 @@
 		},
 		"format": "{time:5}{icon} {capacity}%", // Icon: bolt
 		"format-discharging": "{time:5}  {icon} {capacity}%",
-		"format-full": "{time:5}  {icon} {capacity}%",
+		"format-full": "{icon} {capacity}%",
 		"format-icons": ["", "", "", "", ""],
 		"format-time": "{H:>2}:{M:<02}",
 		"tooltip": false
 	},
 
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
+	"custom/keyboard_battery": {
+		"format": "{}",
+		"exec": "~/.config/waybar/scripts/keyboard_battery.sh",
+		"interval": 10,
+		"tooltip": false
+	},
+
+	"custom/idle": {
+		"format": "{}",
+		"exec": "~/.config/waybar/scripts/idle.sh",
+		"interval": "once",
+		"tooltip": false,
+        "signal": 8
 	},
 
 	"tray": {
@@ -158,28 +165,19 @@
 {
 	"layer": "top",
 	"position": "bottom",
-	"output": "DVI-D-1",
+	"output": "Ancor Communications Inc VG248 FALMQS093846",
 	"modules-left": [
 		"sway/workspaces",
 		"sway/mode"
 	],
 
 	"modules-right": [
-		"idle_inhibitor",
 		"tray",
 		"clock"
 	],
 
 	"sway/mode": {
 		"tooltip": false
-	},
-
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
 	},
 
 	"tray": {

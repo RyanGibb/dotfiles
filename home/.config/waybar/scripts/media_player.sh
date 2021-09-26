@@ -40,7 +40,7 @@ while : ; do
 			player_string="$new_player_string"
 			indices[$i]="$((( (indices[$i]+$INCREMENT) % ($len) )))"
 		fi
-		
+
 		if [[ "$i" != "$max_players_index" ]]; then
 			string+="  "
 		fi

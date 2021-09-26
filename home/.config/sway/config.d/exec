@@ -1,20 +1,26 @@
 exec wl-paste -t text --watch clipman store
 
-exec $SCRIPT_DIR/swayidle_suspend.sh
+exec $SCRIPT_DIR/swayidle_lock.sh
 
 exec playerctld daemon
 exec thunar --daemon
 
 exec blueman-applet
 exec nm-applet --indicator
-exec gammastep-indicator
+exec /usr/lib/geoclue-2.0/demos/agent
+exec gammastep-indicator -r
 
 exec mako
-exec fusuma
-exec kanshi
+exec_always "pkill fusuma; fusuma > ~/.fusuma_log"
+exec_always "pkill kanshi; kanshi > ~/.kanshi_log"
 exec fcitx5 -d --replace
 
 exec waybar
 
 exec .config/sway/scripts/bat_monitor.sh
+
+# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 

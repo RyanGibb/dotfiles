@@ -15,7 +15,7 @@ compinit
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+bindkey -M vicmd V edit-command-line
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -40,6 +40,11 @@ setopt PROMPT_SUBST
 
 # zsh-autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+autoload -Uz compinit && compinit
+bindkey '^I' complete-word
+zstyle -e ':completion:*' command-path 'reply=( "$PWD/bin" "${(@)path}" )'
+
 
 eval $(thefuck --alias)
 
