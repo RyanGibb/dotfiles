@@ -176,16 +176,25 @@ bindsym $mod+Control+comma exec $SCRIPT_DIR/preserve_focus.sh \
 	'swaymsg move container to workspace prev_on_output'
 
 # monitors and workspaces
-bindsym $mod+bracketright focus output right
-bindsym $mod+bracketleft focus output left
-bindsym $mod+Shift+bracketright move container to output right
-bindsym $mod+Shift+bracketleft move container to output left
-bindsym $mod+Control+bracketright exec $SCRIPT_DIR/preserve_focus.sh \
-	'swaymsg move container to output right'
-bindsym $mod+Control+bracketleft exec $SCRIPT_DIR/preserve_focus.sh \
-	'swaymsg move container to output left'
-bindsym $mod+$alt+bracketright move workspace to output right
-bindsym $mod+$alt+bracketleft move workspace to output left
+bindsym $mod+$alt+h focus output left
+bindsym $mod+$alt+j focus output down
+bindsym $mod+$alt+k focus output up
+bindsym $mod+$alt+l focus output right
+
+bindsym $mod+$alt+Shift+h move container to output left
+bindsym $mod+$alt+Shift+j move container to output down
+bindsym $mod+$alt+Shift+k move container to output up
+bindsym $mod+$alt+Shift+l move container to output right
+
+bindsym $mod+$alt+Control+h exec $SCRIPT_DIR/preserve_focus.sh 'swaymsg move container to output left'
+bindsym $mod+$alt+Control+j exec $SCRIPT_DIR/preserve_focus.sh 'swaymsg move container to output down'
+bindsym $mod+$alt+Control+k exec $SCRIPT_DIR/preserve_focus.sh 'swaymsg move container to output up'
+bindsym $mod+$alt+Control+l exec $SCRIPT_DIR/preserve_focus.sh 'swaymsg move container to output right'
+
+bindsym $mod+$alt+Shift+Control+h move workspace to output left
+bindsym $mod+$alt+Shift+Control+j move workspace to output down
+bindsym $mod+$alt+Shift+Control+k move workspace to output up
+bindsym $mod+$alt+Shift+Control+l move workspace to output right
 
 # / workspaces by name
 bindsym $mod+slash exec $SCRIPT_DIR/switch_to_ws.sh
@@ -200,7 +209,8 @@ bindsym $mod+Control+n exec $SCRIPT_DIR/switch_mv_new_ws.sh
 # t = title
 bindsym $mod+t exec $SCRIPT_DIR/title_ws.sh
 
-bindsym $mod+Tab exec $SCRIPT_DIR/window_switcher.sh
+bindsym $mod+Tab       exec $SCRIPT_DIR/window_switcher.sh
+bindsym $mod+Shift+Tab exec $SCRIPT_DIR/window_switcher_scratch.sh
 
 bindsym $mod+Shift+r reload
 bindsym $mod+Control+r exec "pkill waybar; waybar"
@@ -379,6 +389,9 @@ mode "$mode_control_player" {
 	bindsym $mod+p $play_pause; mode "default"
 }
 bindsym $mod+o mode "$mode_control_player"
+bindsym $mod+bracketleft  $play_prev
+bindsym $mod+bracketright $play_next
+bindsym $mod+Shift+p      $play_ppause
 
 set $mode_control_backlight Control backlight | -/+
 mode "$mode_control_backlight" {
@@ -438,17 +451,17 @@ bindsym $mod+Shift+apostrophe $unicode_selector
 
 bindsym $mod+semicolon         exec $SCRIPT_DIR/bluetooth_device.sh
 bindsym $mod+Shift+semicolon   exec $SCRIPT_DIR/bluetooth_device.sh disconnect
-bindsym $mod+Control+semicolon exec $SCRIPT_DIR/network_connect.sh
+bindsym $mod+Control+semicolon exec $SCRIPT_DIR/wifi.sh
 
 bindsym $mod+i mode "$idle_mode"
 
 bindsym Print              exec grim - | wl-copy
 bindsym Shift+Print        exec grim - | swappy -f -
-bindsym Control+Print      exec grim $HOME/pictures/capture/screenshot"_$(date -Iseconds)".mp4
+bindsym Control+Print      exec grim $HOME/pictures/capture/screenshot"_$(date -Iseconds)".png
 bindsym $mod+Print         exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | wl-copy
 bindsym $mod+Shift+Print   exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)" - | swappy -f -
 bindsym $mod+Control+Print exec grim -g "$($SCRIPT_DIR/slurp_windows.sh)"\
-	$HOME/pictures/capture/screenshot"_$(date -Iseconds)".mp4
+	$HOME/pictures/capture/screenshot"_$(date -Iseconds)".png
 
 bindsym $alt+Shift+Print exec wf-recorder\
 	-o $(swaymsg -t get_outputs | jq -r '.[] | select(.type=="output" and .focused).name')\

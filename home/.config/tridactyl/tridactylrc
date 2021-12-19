@@ -1,5 +1,4 @@
 
-unbind <C-f>
 unbind <F1>
 
 set modeindicator false

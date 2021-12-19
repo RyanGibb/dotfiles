@@ -2,9 +2,15 @@
 
 while :
 do
-	acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+	echo "$(date -Ins) $(acpi -b)"\
+		| tee -a ~/.bat_hist\
+		| awk -F'[,:%]' '{print $6, $7}' | {
 		read -r status capacity
 	
+		#if [ "$status" = Charging -o "$status" = Full ]; then
+		#	~/.config/sway/scripts/swayidle_lock.sh
+		#fi
+
 		if [ "$status" = Discharging -a "$capacity" -lt 5 ]; then
 			logger "Critical battery threshold"
 			systemctl hibernate

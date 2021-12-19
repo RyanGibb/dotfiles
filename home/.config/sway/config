@@ -1,7 +1,7 @@
 set $mod Mod4
 set $alt Mod1
 
-set $term WINIT_X11_SCALE_FACTOR=1.0 WINIT_UNIX_BACKEND=x11 alacritty
+set $term alacritty
 set $browser exec firefox
 
 set $SCRIPT_DIR $HOME/.config/sway/scripts

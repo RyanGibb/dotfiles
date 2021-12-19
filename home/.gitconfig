@@ -18,3 +18,5 @@
 	ap = add --patch
 	ps = push
 	pf = push --force
+[http]
+	sslverify = false

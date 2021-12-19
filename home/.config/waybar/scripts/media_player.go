@@ -12,7 +12,7 @@ func main() {
 	const SLEEP_TIME time.Duration = time.Second;
 	const MAX_WIDTH int = 24
 
-	var prev_player string = ""
+	var prev_player_string string = ""
 	var i int = 0
 
 	for {
@@ -27,20 +27,25 @@ func main() {
 			continue
 		}
 
-		if prev_player != player {
-			prev_player = player
-			i = 0
-		}
-
 	    title, _ :=  exec.Command("playerctl", fmt.Sprintf("--player=%s", player), "metadata", "title").Output()
 	    artist, _ := exec.Command("playerctl", fmt.Sprintf("--player=%s", player), "metadata", "artist").Output()
+		seperator := " "
+		if len(title) > 0 {
+			seperator = " - "
+		}
 		player_string := fmt.Sprintf(
-			"%s - %s",
+			"%s%s%s",
 			strings.TrimSuffix(string(title), "\n"),
+			seperator,
 			strings.TrimSuffix(string(artist), "\n"),
 		)
 
-		if len(player_string) > MAX_WIDTH {
+		if prev_player_string != player_string {
+			prev_player_string = player_string
+			i = 0
+		}
+
+		if len(player_string) >= MAX_WIDTH {
 			player_string += " | "
 		}
 
@@ -51,6 +56,9 @@ func main() {
 		}
 		if strings.Contains(player, "firefox") {
 			fmt.Print("")
+		}
+		if strings.Contains(player, "kde") {
+			fmt.Print("")
 		}
 
 		fmt.Print(string(player_string_rune[i:min(len(player_string_rune), i+MAX_WIDTH)]))

@@ -23,7 +23,6 @@ zle -N down-line-or-beginning-search
 
 alias ls='ls -p --color=auto'
 alias pls='sudo $(fc -ln -1)'
-alias nv='nvim'
 alias o='xdg-open'
 alias se='sudoedit'
 alias su='su -p'
@@ -52,7 +51,7 @@ eval $(thefuck --alias)
 if [[ $TERM == "linux" ]]; then
 	# Format the vcs_info_msg_0_ variable
 	zstyle ':vcs_info:git*' formats $' %F{green}%s:%.32b%f '
-	PROMPT='%F{blue}%n@%m%f:%F{cyan}%3~%f${vcs_info_msg_0_}%# '
+	PROMPT='%F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 40))<..<%~%f${vcs_info_msg_0_}%# '
 	RPROMPT=$'%D{%I:%M:%S%p} %3?'
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=5
 # if pty
@@ -60,20 +59,17 @@ else
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=4
 	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}%k %.32b'
 	PROMPT=${(j::Q)${(Z:Cn:):-$'
-		%S%F{blue}
+		%(?..%S%F{red}%3?%s%K{white})
+		%S%f%k%F{white}
+		" "%D{%I:%M:%S%p}
+		%s%K{blue}%S%f%k%F{blue}
 		%n@%m:
 		%s%K{cyan}%S%f%k%F{cyan}
-		%3~
+		%$(($COLUMNS - 40))<..<%~
 		%F{cyan}
 		${vcs_info_msg_0_}
 		%s%f
 		" "%#" "
-	'}}
-	RPROMPT=${(j::Q)${(Z:Cn:):-$'
-		%F{red}%S%k
-		" "%D{%I:%M:%S%p}
-		%K{white}%f%s%k%F{white}%S
-		%(?.  √.%3?)%f%s
 	'}}
 fi
 
@@ -141,12 +137,6 @@ key[Control-R]="^R"
 [[ -n "${key[Control-Delete]}"    ]] && bindkey -- "${key[Control-Delete]}"    kill-word
 [[ -n "${key[Control-R]}"         ]] && bindkey -- "${key[Control-R]}"         history-incremental-search-backward
 
-# finally, make sure the terminal is in application mode, when zle is active.
-# only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
-fi
+export LD_LIBRARY_PATH=/usr/lib
+
+fortune | cowsay

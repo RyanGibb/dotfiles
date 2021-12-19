@@ -9,9 +9,10 @@ exec blueman-applet
 exec nm-applet --indicator
 exec /usr/lib/geoclue-2.0/demos/agent
 exec gammastep-indicator -r
+exec kdeconnect-indicator
 
 exec mako
-exec_always "pkill fusuma; fusuma > ~/.fusuma_log"
+exec_always "pkill fusuma; fusuma -v > ~/.fusuma_log"
 exec_always "pkill kanshi; kanshi > ~/.kanshi_log"
 exec fcitx5 -d --replace
 
@@ -23,4 +24,7 @@ exec .config/sway/scripts/bat_monitor.sh
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# https://github.com/emersion/xdg-desktop-portal-wlr#running
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
