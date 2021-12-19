@@ -1,6 +1,7 @@
 
 export VISUAL=nvim
 export EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
 export GOPATH=$HOME/.go
 
 # https://github.com/boltgolt/howdy/issues/241
