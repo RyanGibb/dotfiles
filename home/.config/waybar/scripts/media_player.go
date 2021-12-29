@@ -1,8 +1,8 @@
 package main
 
 import (
-    "fmt"
-    "os/exec"
+	"fmt"
+	"os/exec"
 	"strings"
 	"time"
 )
@@ -16,8 +16,8 @@ func main() {
 	var i int = 0
 
 	for {
-	    cmd := exec.Command("playerctl", "-l")
-	    stdout, _ := cmd.Output()
+		cmd := exec.Command("playerctl", "-l")
+		stdout, _ := cmd.Output()
 
 		player := strings.Split(string(stdout),"\n")[0]
 
@@ -27,8 +27,8 @@ func main() {
 			continue
 		}
 
-	    title, _ :=  exec.Command("playerctl", fmt.Sprintf("--player=%s", player), "metadata", "title").Output()
-	    artist, _ := exec.Command("playerctl", fmt.Sprintf("--player=%s", player), "metadata", "artist").Output()
+		title, _ :=  exec.Command("playerctl", fmt.Sprintf("--player=%s", player), "metadata", "title").Output()
+		artist, _ := exec.Command("playerctl", fmt.Sprintf("--player=%s", player), "metadata", "artist").Output()
 		seperator := " "
 		if len(title) > 0 {
 			seperator = " - "
@@ -70,16 +70,16 @@ func main() {
 }
 
 func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func max(a, b int) int {
 	if a > b {
-        return a
-    }
-    return b
+		return a
+	}
+	return b
 }
 
