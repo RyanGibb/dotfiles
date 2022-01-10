@@ -51,9 +51,10 @@ setopt PROMPT_SUBST
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '!'
-zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '!'
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:git*' formats $' %F{green}%s:%.32b%m%u%c%f'
 
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
@@ -63,7 +64,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
   fi
 }
 
-zstyle ':vcs_info:git*' formats $' %F{green}%s:%.32b%m%u%c%f'
 PROMPT='%(?..%F{red}%3?%f )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 50))<..<%~%f%<<${vcs_info_msg_0_} %# '
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=5
 
