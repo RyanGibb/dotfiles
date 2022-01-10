@@ -269,7 +269,7 @@ bindsym $mod+Control+Shift+Right resize grow   width  1px
 
 
 
-set $mode_gaps Gaps | h/j/k/l/-/+/0 | 1 default | 2 none | 3 inner | 4 outer | 5 gutter
+set $mode_gaps Gaps | h/j/k/l/-/+/0 | 1 2 3 4 5
 mode "$mode_gaps" {
 	bindsym 1 gaps inner current set $inner_gap;\
 	          gaps outer current set $outer_gap;\
@@ -308,7 +308,6 @@ mode "$mode_gaps" {
 	bindsym Down  gaps vertical   current plus  $gaps_inc
 	bindsym Up    gaps vertical   current minus $gaps_inc
 	bindsym Right gaps horizontal current plus  $gaps_inc
-
 	bindsym Shift+h gaps horizontal current minus 1
 	bindsym Shift+j gaps vertical   current plus  1
 	bindsym Shift+k gaps vertical   current minus 1
@@ -331,7 +330,7 @@ mode "$mode_gaps" {
 }
 bindsym $mod+Shift+g mode "$mode_gaps"
 
-set $mode_system System (l)ock (e)xit (s)uspend (h)ibernate (r)eboot (p)oweroff (u)efi (S)+h
+set $mode_system System | l/e/s/h/r/p/u/S
 mode "$mode_system" {
 	bindsym l exec loginctl lock-session,                  mode "default"
 	bindsym e exec swaymsg exit,                           mode "default"
@@ -367,7 +366,7 @@ mode "$mode_control_volume" {
 	bindsym Escape mode "default"
 }
 
-set $mode_control_player Control player | o stop | (shift+)p play/pause | [ prev | ] next |
+set $mode_control_player Control player | o/p/[/]
 mode "$mode_control_player" {
 	bindsym o            $play_stop
 	bindsym p            $play_pause
@@ -417,7 +416,7 @@ mode "$mode_control_dwt" {
 	bindsym Escape mode "default"
 }
 
-set $mode_control Control (v)olume (p)layer (b)acklight (d)wt
+set $mode_control Control v/p/b/d
 mode "$mode_control" {
 	bindsym v mode "$mode_control_volume"
 	bindsym p mode "$mode_control_player"
@@ -429,7 +428,7 @@ mode "$mode_control" {
 }
 bindsym $mod+c mode "$mode_control"
 
-set $idle_mode Idle mode (i)nhibit | (d)pms | (l)ock | (s)uspend
+set $idle_mode Idle mode i/d/l/s
 mode "$idle_mode" {
 	bindsym i exec $SCRIPT_DIR/swayidle_inhibit.sh; mode "default
 	bindsym d exec $SCRIPT_DIR/swayidle_dpms.sh;    mode "default"
