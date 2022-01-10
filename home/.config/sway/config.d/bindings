@@ -45,6 +45,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term -o background_opacity=1
+bindsym $mod+Control+Return exec $term -e zsh -c "vim documents/vault/log/$(date +%Y-%m-%d); zsh -i"
 
 bindsym $mod+Shift+q kill
 
