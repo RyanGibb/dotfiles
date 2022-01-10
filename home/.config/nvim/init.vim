@@ -28,7 +28,6 @@ let g:auto_save_silent = 0
 
 let g:netrw_home='~/.cache/vim'
 
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='bubblegum'
 
