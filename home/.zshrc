@@ -49,31 +49,23 @@ precmd() { vcs_info }
 
 setopt PROMPT_SUBST
 
-# if tty
-if [[ $TERM == "linux" ]]; then
-	# Format the vcs_info_msg_0_ variable
-	zstyle ':vcs_info:git*' formats $' %F{green}%s:%.32b%f'
-	PROMPT='%(?..%3? )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 40))<..<%~%f${vcs_info_msg_0_} %# '
-	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=5
-# if pty
-else
-	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=4
-	zstyle ':vcs_info:git*' formats $'%K{cyan}%F{green}%k %.32b'
-	PROMPT=${(j::Q)${(Z:Cn:):-$'
-		%(?..%S%F{red}%3?%s%K{white})
-		%S%f%k%F{white}
-		" "%D{%I:%M:%S%p}
-		%s%K{blue}%S%f%k%F{blue}
-		%n@%m:
-		%s%K{cyan}%S%f%k%F{cyan}
-		%$(($COLUMNS - 40))<..<%~
-		%F{cyan}
-		${vcs_info_msg_0_}
-		%s%f
-		" "%#" "
-	'}}
-fi
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+     git status --porcelain | grep -m 1 '^??' &>/dev/null
+  then
+    hook_com[misc]='?'
+  fi
+}
+
+zstyle ':vcs_info:git*' formats $' %F{green}%s:%.32b%m%u%c%f'
+PROMPT='%(?..%F{red}%3?%f )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 50))<..<%~%f%<<${vcs_info_msg_0_} %# '
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=5
 
 # set window title
 # https://wiki.archlinux.org/title/zsh#xterm_title
