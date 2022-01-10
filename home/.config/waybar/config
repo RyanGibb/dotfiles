@@ -1,7 +1,6 @@
 [{
 	"layer": "bottom",
 	"position": "bottom",
-	"output": "!Ancor Communications Inc VG248 FALMQS093846",
 
 	"modules-left": [
 		"sway/workspaces",
@@ -16,8 +15,6 @@
 		"disk",
 		"memory",
 		"cpu",
-		"custom/loadavg",
-		"temperature",
 		"custom/updates",
 		"battery",
 		"custom/keyboard_battery",
@@ -104,17 +101,17 @@
 	},
 
 	"custom/loadavg": {
-		"format": " {:2.3}",
-		"exec": "cut -d ' ' -f1 /proc/loadavg",
-		"tooltip": false,
+	        "format": " {:2.3}",
+	        "exec": "cut -d ' ' -f1 /proc/loadavg",
+	        "tooltip": false,
 	},
 
 	"temperature": {
-		"thermal-zone": 2,
-		"interval": 10,
-		"critical-threshold": 90,
-		"format": "{temperatureC:3}°",
-		"tooltip": false
+	        "thermal-zone": 2,
+	        "interval": 10,
+	        "critical-threshold": 90,
+	        "format": "{temperatureC:3}°",
+	        "tooltip": false
 	},
 
 	"custom/updates": {
@@ -160,32 +157,5 @@
 		"interval": 1,
 		"format": "{:%a %d/%m/%y %I:%M:%S%p}",
 		"tooltip": false
-	},
-},
-{
-	"layer": "top",
-	"position": "bottom",
-	"output": "Ancor Communications Inc VG248 FALMQS093846",
-	"modules-left": [
-		"sway/workspaces",
-		"sway/mode"
-	],
-
-	"modules-right": [
-		"tray",
-		"clock"
-	],
-
-	"sway/mode": {
-		"tooltip": false
-	},
-
-	"tray": {
-		"icon-size": 16
-	},
-
-	"clock": {
-		"interval": 1,
-		"format": "{:%a %d/%m/%y %I:%M:%S%p}"
 	},
 }]

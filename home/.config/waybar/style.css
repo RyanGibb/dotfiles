@@ -21,7 +21,7 @@
 @define-color date #2e3440;
 
 * {
-	border-radius: 10px;
+	border-radius: 2px;
 	min-height: 0;
 	padding: 0;
 }
@@ -58,6 +58,11 @@ tooltip label {
 
 #workspaces button.urgent {
 	background: @urgent;
+}
+
+#workspaces button:hover {
+	border: 1px solid transparent;
+    border-bottom: 3px solid transparent;
 }
 
 #mode {
