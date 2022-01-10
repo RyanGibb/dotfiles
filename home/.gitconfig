@@ -6,6 +6,7 @@
 	ci = commit
 	cm = commit --message
 	ca = commit --amend
+	cu = commit --message "update"
 	br = branch
 	co = checkout
 	df = diff
