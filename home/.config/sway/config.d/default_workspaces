@@ -1,0 +1,6 @@
+
+#assign [app_id="firefox"] 1
+for_window [class="Spotify"] move window to workspace 9
+assign [app_id="thunderbird"] 10
+for_window [class="obsidian"] move window to workspace 8🪨
+
