@@ -15,6 +15,7 @@
 		"disk",
 		"memory",
 		"cpu",
+		"temperature",
 		"custom/updates",
 		"battery",
 		"custom/keyboard_battery",
@@ -93,25 +94,19 @@
 
 	"cpu": {
 		"interval": 10,
-		"format": "{usage:3}%",
+		"format": "{usage:3}% {:2.3} ",
 		"states": {
 		  "warning": 70,
 		  "critical": 90
 		}
 	},
 
-	"custom/loadavg": {
-	        "format": " {:2.3}",
-	        "exec": "cut -d ' ' -f1 /proc/loadavg",
-	        "tooltip": false,
-	},
-
 	"temperature": {
-	        "thermal-zone": 2,
-	        "interval": 10,
-	        "critical-threshold": 90,
-	        "format": "{temperatureC:3}°",
-	        "tooltip": false
+		"thermal-zone": 2,
+		"interval": 10,
+		"critical-threshold": 90,
+		"format": "{temperatureC:3}°",
+		"tooltip": false
 	},
 
 	"custom/updates": {
