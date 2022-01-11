@@ -4,9 +4,20 @@ call plug#begin('~/.vim/plugged')
 	Plug '907th/vim-auto-save'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'drewtempelmeyer/palenight.vim'
 	Plug 'preservim/nerdtree'
-	Plug 'arcticicestudio/nord-vim'
 call plug#end()
+
+let g:palenight_color_overrides = {
+\    'black': { 'gui': '#282d38', "cterm": "0", "cterm16": "0" },
+\}
+
+colorscheme palenight
+
+hi Normal ctermbg=NONE
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='bubblegum'
 
 set number
 set relativenumber
@@ -27,9 +38,6 @@ let g:auto_save_silent = 0
 
 let g:netrw_home='~/.cache/vim'
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='bubblegum'
-
 " https://stackoverflow.com/questions/5312235/how-do-i-correct-vim-spelling-mistakes-quicker
 imap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -38,5 +46,3 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-"colorscheme onedark
-"hi Normal guibg=NONE ctermbg=NONE
