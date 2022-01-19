@@ -5,3 +5,4 @@ if grep -q open /proc/acpi/button/lid/LID0/state; then
 else
     swaymsg output $1 disable
 fi
+
