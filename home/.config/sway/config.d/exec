@@ -27,3 +27,9 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # https://github.com/emersion/xdg-desktop-portal-wlr#running
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# GUI programs
+exec thunderbird
+exec obsidian
+exec spotify
+exec zotero
+
