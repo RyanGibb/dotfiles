@@ -12,8 +12,7 @@ exec gammastep-indicator -r
 exec kdeconnect-indicator
 
 exec mako
-exec_always "pkill fusuma; fusuma -v > ~/.fusuma_log"
-exec_always "pkill kanshi; kanshi > ~/.kanshi_log"
+exec_always "pkill kanshi; kanshi &> ~/.kanshi_log"
 exec fcitx5 -d --replace
 
 exec waybar

@@ -1,0 +1,8 @@
+[Unit]
+Description=Fusuma touchpad gestures
+
+[Service]
+ExecStart=/bin/fusuma -v
+Restart=on-failure
+RestartSec=10s
+
