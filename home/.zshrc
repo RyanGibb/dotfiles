@@ -30,12 +30,10 @@ alias ssh='TERM=xterm ssh'
 
 setopt interactive_comments
 
-# zsh-autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion history)
 
-autoload -Uz compinit && compinit
-bindkey '^I' complete-word
-zstyle -e ':completion:*' command-path 'reply=( "$PWD/bin" "${(@)path}" )'
+autoload zmv
 
 eval $(thefuck --alias)
 
@@ -64,7 +62,7 @@ zstyle ':vcs_info:git*' formats $' %F{green}%.32b%m%u%c%f'
   fi
 }
 
-PROMPT='%(?..%F{red}%3?%f )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 50))<..<%~%f%<<${vcs_info_msg_0_} %# '
+PROMPT='%(?..%F{red}%3?%f )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 70))<..<%~%f%<<${vcs_info_msg_0_} %# '
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=5
 
 # set window title
