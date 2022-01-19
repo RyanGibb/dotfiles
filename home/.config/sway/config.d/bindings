@@ -455,6 +455,9 @@ bindsym $mod+Control+semicolon exec $SCRIPT_DIR/wifi.sh
 
 bindsym $mod+i mode "$idle_mode"
 
+bindsym $mod+Shift+i   exec $SCRIPT_DIR/dpms_off.sh
+bindsym $mod+Control+i exec $SCRIPT_DIR/dpms_toggle.sh
+
 bindsym Print              exec grim - | wl-copy
 bindsym Shift+Print        exec grim - | swappy -f -
 bindsym Control+Print      exec grim $HOME/pictures/capture/screenshot"_$(date -Iseconds)".png
