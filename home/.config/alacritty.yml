@@ -1,10 +1,10 @@
 dynamic_title: true
-background_opacity: 0.95
+background_opacity: 1
 # Colors (Nord)
 colors:
   # Default colors
   primary:
-    background: '#282d38'
+    background: '#272930'
     foreground: '#d8dee9'
 
   # Normal colors
@@ -20,7 +20,7 @@ colors:
 
   # Bright colors
   bright:
-    black:   '#4c566a'
+    black:   '#282d38'
     red:     '#bf616a'
     green:   '#a3be8c'
     yellow:  '#ebcb8b'
