@@ -21,7 +21,7 @@
 @define-color date #2e3440;
 
 * {
-	border-radius: 2px;
+	border-radius: 0px;
 	min-height: 0;
 	padding: 0;
 }
@@ -41,7 +41,6 @@ tooltip label {
 
 #workspaces button {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	color: @dark;
 	background: @workspaces;
@@ -67,7 +66,6 @@ tooltip label {
 
 #mode {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	color: @dark;
 	background: @mode;
@@ -75,7 +73,6 @@ tooltip label {
 
 #custom-media_player {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @media_player;
 	color: @dark;
@@ -83,7 +80,6 @@ tooltip label {
 
 #pulseaudio {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @pulseaudio;
 	color: @dark;
@@ -91,7 +87,6 @@ tooltip label {
 
 #backlight {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @backlight;
 	color: @light;
@@ -99,7 +94,6 @@ tooltip label {
 
 #network {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @network;
 	color: @dark;
@@ -107,7 +101,6 @@ tooltip label {
 
 #disk {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @disk;
 	color: @dark;
@@ -115,7 +108,6 @@ tooltip label {
 
 #memory {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @memory;
 	color: @dark;
@@ -123,28 +115,24 @@ tooltip label {
 
 #cpu {
 	padding: 0 4px;
-	margin: 4px 2px;
 	background: @cpu;
 	color: @dark;
 }
 
 #custom-loadavg {
 	padding: 0 4px;
-	margin: 4px 2px;
 	background: @cpu;
 	color: @dark;
 }
 
 #temperature {
 	padding: 0 4px;
-	margin: 4px 2px;
 	background: @cpu;
 	color: @dark;
 }
 
 #custom-updates {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @updates;
 	color: @light;
@@ -152,7 +140,6 @@ tooltip label {
 
 #battery {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @power;
 	color: @dark;
@@ -160,14 +147,12 @@ tooltip label {
 
 #battery.warning {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	color: @warning;
 }
 
 #custom-keyboard_battery {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @power;
 	color: @dark;
@@ -175,7 +160,6 @@ tooltip label {
 
 #custom-idle {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @power;
 	color: @dark;
@@ -183,7 +167,6 @@ tooltip label {
 
 #tray {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @date;
 }
@@ -195,7 +178,6 @@ tooltip label {
 
 #clock {
 	padding: 0 4px;
-	margin: 4px 2px;
 	min-width: 20px;
 	background: @date;
 	color: @light;
