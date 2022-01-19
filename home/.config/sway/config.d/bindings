@@ -99,7 +99,7 @@ bindsym $mod+z focus child
 bindsym $mod+Shift+a exec $SCRIPT_DIR/focus_root.sh
 bindsym $mod+Shift+z exec $SCRIPT_DIR/focus_leaf.sh
 
-set $ws1  "1"
+set $ws1  "1"
 set $ws2  "2"
 set $ws3  "3"
 set $ws4  "4"
