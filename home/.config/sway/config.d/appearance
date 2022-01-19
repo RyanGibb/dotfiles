@@ -16,7 +16,7 @@ gaps bottom $bottom_gap
 # class                 border  backgr. text    indicator child_border
 client.focused          #5e81ac #5e81ac #eceff4 #85b6f2   #5e81ac
 client.focused_inactive #4c566a #4c566a #eceff4 #72819e   #4c566a
-client.unfocused        #2e3440 #2e3440 #eceff4 #535d73   #2e3440
+client.unfocused        #272930 #272930 #eceff4 #535d73   #272930
 client.urgent           #bf616a #bf616a #eceff4 #ffdc96   #bf616a
 client.placeholder      #000000 #0c0c0c #eceff4 #000000   #0c0c0c
 

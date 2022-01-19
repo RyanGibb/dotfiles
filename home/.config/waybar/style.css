@@ -18,7 +18,7 @@
 @define-color cpu #d08770;
 @define-color updates #5e81ac;
 @define-color power #8fbcbb;
-@define-color date #2e3440;
+@define-color date #272930;
 
 * {
 	border-radius: 0px;
@@ -27,7 +27,7 @@
 }
 
 #waybar {
-	background: transparent;
+	background: #272930;
 	font-family: monospace, NotoSansMono Nerd Font;
 	font-size: 10pt;
 }
@@ -44,15 +44,14 @@ tooltip label {
 	min-width: 20px;
 	color: @dark;
 	background: @workspaces;
-    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.current_output.visible {
-    border-bottom: 3px solid @workspacesvisible;
+	background: @workspacesvisible;
 }
 
 #workspaces button.current_output.focused {
-    border-bottom: 3px solid @workspacesfocused;
+	background: @workspacesfocused;
 }
 
 #workspaces button.urgent {
