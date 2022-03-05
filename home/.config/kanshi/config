@@ -12,7 +12,6 @@ profile {
 
 profile {
 	output "Sharp Corporation 0x14F9 0x00000000" mode 1920x1200 position 0,0
-	exec sudo systemctl restart linux-enable-ir-emitter.service
 	exec ~/.config/sway/scripts/swayidle_suspend.sh
 }
 

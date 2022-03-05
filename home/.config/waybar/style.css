@@ -59,8 +59,8 @@ tooltip label {
 }
 
 #workspaces button:hover {
+	background: @workspacesvisible;
 	border: 1px solid transparent;
-    border-bottom: 3px solid transparent;
 }
 
 #mode {

@@ -15,8 +15,8 @@ gaps bottom $bottom_gap
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #5e81ac #5e81ac #eceff4 #85b6f2   #5e81ac
-client.focused_inactive #4c566a #4c566a #eceff4 #72819e   #4c566a
-client.unfocused        #272930 #272930 #eceff4 #535d73   #272930
+client.focused_inactive #434c5e #4c566a #eceff4 #72819e   #434c5e
+client.unfocused        #434c5e #272930 #eceff4 #535d73   #434c5e
 client.urgent           #bf616a #bf616a #eceff4 #ffdc96   #bf616a
 client.placeholder      #000000 #0c0c0c #eceff4 #000000   #0c0c0c
 
@@ -34,6 +34,8 @@ for_window [app_id="zoom" title="Choose ONE of the audio conference options"] fl
 for_window [app_id="zoom" title="zoom"] floating enable
 for_window [app_id="zoom" title="Zoom Meeting"] floating disable
 for_window [app_id="zoom" title="Zoom - Free Account"] floating disable
+
+for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
 
 set $gnome-schema org.gnome.desktop.interface
 

@@ -1,6 +1,6 @@
 swipe:
   3:
-    threshhold: 0
+    threshhold: 1
     interval: 1
     left:
       sendkey: "LEFTALT+RIGHT"

@@ -3,10 +3,11 @@
 	name = Ryan Gibb
 [alias]
 	s = status
-	ci = commit
+	c = commit
 	cm = commit --message
-	ca = commit --amend
+	ca = commit --amend --no-edit
 	cu = commit --message "update"
+	ci = commit --message "initial"
 	br = branch
 	co = checkout
 	df = diff
@@ -16,8 +17,7 @@
 	ls = ls-files
 	a = add
 	aa = add --all
+	au = add -u
 	ap = add --patch
 	ps = push
 	pf = push --force
-[http]
-	sslverify = false

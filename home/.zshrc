@@ -62,7 +62,7 @@ zstyle ':vcs_info:git*' formats $' %F{green}%.32b%m%u%c%f'
   fi
 }
 
-PROMPT='%(?..%F{red}%3?%f )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%$(($COLUMNS - 70))<..<%~%f%<<${vcs_info_msg_0_} %# '
+PROMPT='%(?..%F{red}%3?%f )%D{%I:%M:%S%p} %F{blue}%n@%m%f:%F{cyan}%~%f%<<${vcs_info_msg_0_}'$'\n'' %# '
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=5
 
 # set window title

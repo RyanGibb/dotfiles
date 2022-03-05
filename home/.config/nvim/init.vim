@@ -8,13 +8,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'preservim/nerdtree'
 call plug#end()
 
-let g:palenight_color_overrides = {
-\    'black': { 'gui': '#282d38', "cterm": "0", "cterm16": "0" },
-\}
-
 colorscheme palenight
-
-hi Normal ctermbg=NONE
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='bubblegum'
